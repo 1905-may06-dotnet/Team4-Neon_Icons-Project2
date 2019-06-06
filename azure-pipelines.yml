@@ -17,14 +17,14 @@ variables:
   pathtotest: 'Neon_Icon/Testing'
 
 steps:
-# - script: dotnet build --configuration $(buildConfiguration)
-#   displayName: 'dotnet build $(buildConfiguration)'
-#   workingDirectory: $(pathtosolution)
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+  workingDirectory: $(pathtosolution)
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '$(pathtosolution)'
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: 'build'
+#     projects: '$(pathtosolution)'
 
 - task: DotNetCoreCLI@2
   inputs:
