@@ -2,7 +2,7 @@
 
 ![NeonIcons](https://github.com/1905-may06-dotnet/Team4-Neon_Icons-Project2/blob/master/readmeicons.jpg)
 
-## Membership:
+### Membership:
 1. James Spiva (Lead)
 2. Nathan Woodruff
 3. Guillermo E Tuyub Canul
@@ -13,13 +13,13 @@
 ## Objective:
 Develop a full-stack web application utilizing the Microsoft tech-stack.
 
-## MVP:
+### MVP:
 A web application which provides the current weather forecast and corresponding music.
 
-## Architecture
+### Architecture
 This project will be developed in accordance with SOLID design principles, and produce a layered architecture.
 
-## Development Strategy
+### Development Strategy
 We will observe Agile methodologies in our development approach.
 
 ## Technologies
