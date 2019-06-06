@@ -32,8 +32,8 @@ steps:
     package: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
     deploymentMethod: 'auto'
 
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\Testing.dll'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+# - task: VSTest@2
+#   inputs:
+#     testSelector: 'testAssemblies'
+#     testAssemblyVer2: '**\Testing.dll'
+#     searchFolder: '$(System.DefaultWorkingDirectory)'
