@@ -7,6 +7,7 @@
 2. Nathan Woodruff
 3. Guillermo E Tuyub Canul
 4. Emmanuel Ruscalleda 
+5. Michael Bruno
 
 
 ## Objective:
