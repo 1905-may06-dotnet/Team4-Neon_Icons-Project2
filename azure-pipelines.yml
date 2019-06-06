@@ -27,17 +27,6 @@ steps:
   displayName: 'dotnet test'
   workingDirectory: $(pathtosolution)
 
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'build'
-#     projects: '$(pathtosolution)'
-
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'test'
-#     projects: '$(pathtotest)/*.csproj'
-#     publishTestResults: false
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
@@ -50,9 +39,3 @@ steps:
     appName: 'NeonIcons'
     package: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
     deploymentMethod: 'auto'
-
-# - task: VSTest@2
-#   inputs:
-#     testSelector: 'testAssemblies'
-#     testAssemblyVer2: '**\Testing.dll'
-#     searchFolder: '$(System.DefaultWorkingDirectory)'
