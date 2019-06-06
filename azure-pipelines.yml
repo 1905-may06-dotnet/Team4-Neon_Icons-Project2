@@ -21,20 +21,27 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: $(pathtosolution)
 
+- script: dotnet test
+    --configuration $(buildConfiguration)
+    --no-build
+  displayName: 'dotnet test'
+  workingDirectory: $(pathtosolution)
+
 # - task: DotNetCoreCLI@2
 #   inputs:
 #     command: 'build'
 #     projects: '$(pathtosolution)'
 
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: 'test'
+#     projects: '$(pathtotest)/*.csproj'
+#     publishTestResults: false
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: '$(pathtotest)/*.csproj'
 
 - task: AzureWebApp@1
   inputs:
