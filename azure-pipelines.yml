@@ -23,6 +23,13 @@ steps:
   inputs:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
+  
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\Testing.dll'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free Trial(d30e4b38-6958-43b6-ad79-a05f240c8380)'
