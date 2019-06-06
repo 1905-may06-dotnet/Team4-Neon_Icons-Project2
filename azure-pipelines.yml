@@ -21,7 +21,7 @@ steps:
   workingDirectory: $(pathtosolution)
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build'
+    command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
 - task: AzureWebApp@1
   inputs:
