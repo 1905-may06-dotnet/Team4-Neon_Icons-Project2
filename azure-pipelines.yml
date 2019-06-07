@@ -14,15 +14,24 @@ variables:
   buildConfiguration: 'Release'
   pathtosolution: 'Neon_Icon/'
   pathtoproject: 'Neon_Icon/WebClient'
+  pathtotest: 'Neon_Icon/Testing'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: $(pathtosolution)
+
+- script: dotnet test
+    --configuration $(buildConfiguration)
+    --no-build
+  displayName: 'dotnet test'
+  workingDirectory: $(pathtosolution)
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
+
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free Trial(d30e4b38-6958-43b6-ad79-a05f240c8380)'
