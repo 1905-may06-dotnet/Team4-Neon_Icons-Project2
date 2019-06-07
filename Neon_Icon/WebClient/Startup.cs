@@ -50,7 +50,7 @@ namespace WebClient
 
                     name: "default",
 
-                    template: "{controller=Values}/{action=Get}/{id?}");
+                    template: "{controller=Values}/{action=Get}");
 
             });
         }
