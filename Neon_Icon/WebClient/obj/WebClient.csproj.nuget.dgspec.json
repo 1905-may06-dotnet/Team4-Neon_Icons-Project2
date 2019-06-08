@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
         "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
         "outputPath": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
+=======
+    "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+        "projectName": "WebClient",
+        "projectPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+        "packagesPath": "C:\\Users\\Nathan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
+>>>>>>> f999416ef979e8bd8e06157dcfb02252f39acf41
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Nathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> f999416ef979e8bd8e06157dcfb02252f39acf41
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,6 +75,10 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.3, )"
             }
           },
           "imports": [

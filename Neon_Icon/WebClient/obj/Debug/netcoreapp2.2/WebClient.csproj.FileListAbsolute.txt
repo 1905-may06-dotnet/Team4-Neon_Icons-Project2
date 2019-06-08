@@ -1,0 +1,14 @@
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\bin\Debug\netcoreapp2.2\WebClient.deps.json
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\bin\Debug\netcoreapp2.2\WebClient.runtimeconfig.json
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\bin\Debug\netcoreapp2.2\WebClient.runtimeconfig.dev.json
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\bin\Debug\netcoreapp2.2\WebClient.dll
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.csprojAssemblyReference.cache
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.csproj.CoreCompileInputs.cache
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.RazorAssemblyInfo.cache
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.RazorAssemblyInfo.cs
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.AssemblyInfoInputs.cache
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.AssemblyInfo.cs
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.RazorTargetAssemblyInfo.cache
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\bin\Debug\netcoreapp2.2\WebClient.pdb
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.dll
+C:\Revature\Project2\Team4-Neon_Icons-Project2\Neon_Icon\WebClient\obj\Debug\netcoreapp2.2\WebClient.pdb
