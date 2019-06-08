@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {}
+    "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {
+    "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
-        "projectName": "WebClient",
-        "projectPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+        "projectUniqueName": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Nathan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
+        "outputPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,26 +41,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            },
-            "Microsoft.AspNetCore.Razor.Design": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[2.2.3, )"
             }
           },
           "imports": [
