@@ -2,6 +2,9 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+    "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {}
+=======
+<<<<<<< HEAD
     "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {}
   },
   "projects": {
@@ -15,27 +18,38 @@
         "outputPath": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
 =======
     "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {}
+>>>>>>> 2f021dc4fce7c5766f0ebebd426527acedeca83e
   },
   "projects": {
-    "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {
+    "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+        "projectUniqueName": "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
         "projectName": "WebClient",
+<<<<<<< HEAD
+        "projectPath": "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+        "packagesPath": "C:\\Users\\emman\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
+=======
         "projectPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
         "packagesPath": "C:\\Users\\Nathan\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
 >>>>>>> f999416ef979e8bd8e06157dcfb02252f39acf41
+>>>>>>> 2f021dc4fce7c5766f0ebebd426527acedeca83e
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\emman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
 <<<<<<< HEAD
           "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
           "C:\\Users\\Nathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> f999416ef979e8bd8e06157dcfb02252f39acf41
+>>>>>>> 2f021dc4fce7c5766f0ebebd426527acedeca83e
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
