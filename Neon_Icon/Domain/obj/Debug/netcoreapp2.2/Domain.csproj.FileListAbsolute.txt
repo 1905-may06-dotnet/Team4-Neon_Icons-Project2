@@ -7,3 +7,5 @@ C:\Users\Nathan\GitHub\Neon_Icons_Project2\Team4-Neon_Icons-Project2\Neon_Icon\D
 C:\Users\Nathan\GitHub\Neon_Icons_Project2\Team4-Neon_Icons-Project2\Neon_Icon\Domain\obj\Debug\netcoreapp2.2\Domain.AssemblyInfo.cs
 C:\Users\Nathan\GitHub\Neon_Icons_Project2\Team4-Neon_Icons-Project2\Neon_Icon\Domain\obj\Debug\netcoreapp2.2\Domain.dll
 C:\Users\Nathan\GitHub\Neon_Icons_Project2\Team4-Neon_Icons-Project2\Neon_Icon\Domain\obj\Debug\netcoreapp2.2\Domain.pdb
+C:\Revature\Team4-Neon_Icons-Project2\Neon_Icon\Domain\obj\Debug\netcoreapp2.2\Domain.dll
+C:\Revature\Team4-Neon_Icons-Project2\Neon_Icon\Domain\obj\Debug\netcoreapp2.2\Domain.pdb
