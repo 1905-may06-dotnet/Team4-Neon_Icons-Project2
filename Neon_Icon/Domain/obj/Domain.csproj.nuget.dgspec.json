@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\guill\\Repos\\Tuyub_Guillermo_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Users\\guill\\Repos\\Tuyub_Guillermo_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\guill\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\guill\\Repos\\Tuyub_Guillermo_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\obj\\",
+=======
+    "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\emman\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\emman\\Desktop\\Lectures Notes\\Projects\\Project_02\\GitHub Files\\Team4-Neon_Icons-Project2\\Neon_Icon\\Domain\\obj\\",
+>>>>>>> a0411fcb0be36099664c51dc6bdb7f63c7e97aec
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\guill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\emman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> a0411fcb0be36099664c51dc6bdb7f63c7e97aec
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
