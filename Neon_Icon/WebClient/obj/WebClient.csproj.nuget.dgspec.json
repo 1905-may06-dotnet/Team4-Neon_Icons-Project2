@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Revature\\Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {}
+    "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {}
   },
   "projects": {
-    "C:\\Revature\\Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {
+    "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature\\Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+        "projectUniqueName": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
         "projectName": "WebClient",
-        "projectPath": "C:\\Revature\\Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
-        "packagesPath": "C:\\Users\\zspiv\\.nuget\\packages\\",
-        "outputPath": "C:\\Revature\\Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
+        "projectPath": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\zspiv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
