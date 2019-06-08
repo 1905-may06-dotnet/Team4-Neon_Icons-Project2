@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain
+namespace Domain.DomainEntities
 {
-    public class Location
+    public class Locations
     {
         public int id { get; set; }
         public string location { get; set; }
