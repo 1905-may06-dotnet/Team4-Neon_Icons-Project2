@@ -12938,23 +12938,55 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\guill\\.nuget\\packages\\": {},
+=======
+<<<<<<< HEAD
+    "C:\\Users\\micha\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\Nathan\\.nuget\\packages\\": {},
+>>>>>>> f999416ef979e8bd8e06157dcfb02252f39acf41
+>>>>>>> 22ede5cd638dd601bd6c55a88089c4477b54f52a
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\guill\\Repos\\Tuyub_Guillermo_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
       "projectName": "WebClient",
       "projectPath": "C:\\Users\\guill\\Repos\\Tuyub_Guillermo_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
       "packagesPath": "C:\\Users\\guill\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\guill\\Repos\\Tuyub_Guillermo_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
+=======
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+      "projectName": "WebClient",
+      "projectPath": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+      "outputPath": "C:\\Revature\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+      "projectName": "WebClient",
+      "projectPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\WebClient.csproj",
+      "packagesPath": "C:\\Users\\Nathan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nathan\\GitHub\\Neon_Icons_Project2\\Team4-Neon_Icons-Project2\\Neon_Icon\\WebClient\\obj\\",
+>>>>>>> f999416ef979e8bd8e06157dcfb02252f39acf41
+>>>>>>> 22ede5cd638dd601bd6c55a88089c4477b54f52a
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\guill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+<<<<<<< HEAD
+        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\Nathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> f999416ef979e8bd8e06157dcfb02252f39acf41
+>>>>>>> 22ede5cd638dd601bd6c55a88089c4477b54f52a
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
