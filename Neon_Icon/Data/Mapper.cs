@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Data.Entities;
+using DomainEntities = Domain.DomainEntities;
 
 namespace Data
 {
@@ -17,38 +20,38 @@ namespace Data
             Id = g.id,
             Type = g.type
         };
-        public static DomainEntities.Location Map(Entities.Locations l) => new DomainEntities.Genre
+        public static DomainEntities.Location Map(Entities.Locations l) => new DomainEntities.Location
         {
             id = l.Id,
             location = l.Location
         };
-        public static Entities.Locations Map(DomainEntities.Locations l) => new Entities.Locations
+        public static Entities.Locations Map(DomainEntities.Location l) => new Entities.Locations
         {
             Id = l.id,
             Location = l.location
         };
-        public static DomainEntities.Preferences Map(Entities.Preferences p) => new DomainEntities.Preferences
+        public static DomainEntities.Preference Map(Entities.Preferences p) => new DomainEntities.Preference
         {
-            preferences_id = p.Id,
+            preference_id = p.Id,
             user_id = p.UserId,
             weather_id = p.WeatherId,
             genre_id = p.GenreId
         };
-        public static Entities.Preferences Map(DomainEntities.Preferences p) => new Entities.Preferences
+        public static Entities.Preferences Map(DomainEntities.Preference p) => new Entities.Preferences
         {
-            Id = p.preferences_id,
+            Id = p.preference_id,
             UserId = p.user_id,
             WeatherId = p.weather_id,
             GenreId = p.genre_id
         };
-        public static DomainEntities.Users Map(Entities.Users u) => new DomainEntities.Users
+        public static DomainEntities.User Map(Entities.Users u) => new DomainEntities.User
         {
             id = u.Id,
             username = u.Username,
             password = u.Password,
             location_id = u.LocationId
         };
-        public static Entities.Users Map(DomainEntities.Users u) => new Entities.Users
+        public static Entities.Users Map(DomainEntities.User u) => new Entities.Users
         {
             Id = u.id,
             Username = u.username,
@@ -71,12 +74,12 @@ namespace Data
         };
         public static IEnumerable<DomainEntities.Genre> Map(IEnumerable<Entities.Genre> g) => g.Select(Map);
         public static IEnumerable<Entities.Genre> Map(IEnumerable<DomainEntities.Genre> g) => g.Select(Map);
-        public static IEnumerable<DomainEntities.Locations> Map(IEnumerable<Entities.Locations> l) => l.Select(Map);
-        public static IEnumerable<Entities.Locations> Map(IEnumerable<DomainEntities.Locations> l) => l.Select(Map);
-        public static IEnumerable<DomainEntities.Preferences> Map(IEnumerable<Entities.Preferences> p) => p.Select(Map);
-        public static IEnumerable<Entities.Preferences> Map(IEnumerable<DomainEntities.Preferences> p) => p.Select(Map);
-        public static IEnumerable<DomainEntities.Users> Map(IEnumerable<Entities.Users> u) => u.Select(Map);
-        public static IEnumerable<Entities.Users> Map(IEnumerable<DomainEntities.Users> u) => u.Select(Map);
+        public static IEnumerable<DomainEntities.Location> Map(IEnumerable<Entities.Locations> l) => l.Select(Map);
+        public static IEnumerable<Entities.Locations> Map(IEnumerable<DomainEntities.Location> l) => l.Select(Map);
+        public static IEnumerable<DomainEntities.Preference> Map(IEnumerable<Entities.Preferences> p) => p.Select(Map);
+        public static IEnumerable<Entities.Preferences> Map(IEnumerable<DomainEntities.Preference> p) => p.Select(Map);
+        public static IEnumerable<DomainEntities.User> Map(IEnumerable<Entities.Users> u) => u.Select(Map);
+        public static IEnumerable<Entities.Users> Map(IEnumerable<DomainEntities.User> u) => u.Select(Map);
         public static IEnumerable<DomainEntities.Weather> Map(IEnumerable<Entities.Weather> w) => w.Select(Map);
         public static IEnumerable<Entities.Weather> Map(IEnumerable<DomainEntities.Weather> w) => w.Select(Map);
     }

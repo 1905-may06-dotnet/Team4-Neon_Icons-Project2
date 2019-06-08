@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Domain.DomainEntities
 {
-    public class Preferences
+    public class Preference
     {
-        public int preferences_id { get; set; }
+        public int preference_id { get; set; }
         public int user_id { get; set; }
         public int weather_id { get; set; }
         public int genre_id { get; set; }

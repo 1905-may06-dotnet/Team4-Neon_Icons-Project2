@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.DomainEntities
 {
-    public class Locations
+    public class Location
     {
         public int id { get; set; }
         public string location { get; set; }
