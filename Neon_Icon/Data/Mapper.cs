@@ -9,7 +9,6 @@ namespace Data
 {
     public static class Mapper
     {
-
         public static DomainEntities.Genre Map(Entities.Genre g)
         {
             if (g == null) { return null; }
@@ -84,12 +83,13 @@ namespace Data
         {
             if (u == null) { return null; }
 
-            return new DomainEntities.User
+           return new DomainEntities.User
             {
                 id = u.Id,
                 username = u.Username,
                 password = u.Password,
-                location_id = u.LocationId
+
+                location = Map(DatabaseInstance.GetContext().Locations.Find(u.LocationId))
             };
         }
 
@@ -102,7 +102,7 @@ namespace Data
                 Id = u.id,
                 Username = u.username,
                 Password = u.password,
-                LocationId = u.location_id
+                LocationId = u.location.id
             };
         }
 

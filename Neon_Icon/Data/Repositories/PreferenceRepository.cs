@@ -6,19 +6,19 @@ using Domain.Repositories;
 
 namespace Data.Repositories
 {
-    class WeatherRepository : IWeatherRepository
+    class PreferenceRepository : IPreferenceRepository
     {
-        public Weather GetWeather()
+        public void DeletePreference(Preference preference)
         {
             throw new NotImplementedException();
         }
 
-        public Weather GetWeather(int id)
+        public IEnumerable<Preference> GetPreferences(int userid)
         {
             throw new NotImplementedException();
         }
 
-        public Weather GetWeather(Weather type)
+        public void SetPreference(Preference preference)
         {
             throw new NotImplementedException();
         }
