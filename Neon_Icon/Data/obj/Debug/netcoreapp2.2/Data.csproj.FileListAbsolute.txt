@@ -9,3 +9,5 @@ C:\Users\Nathan\GitHub\Neon_Icons_Project2\Team4-Neon_Icons-Project2\Neon_Icon\D
 C:\Users\Nathan\GitHub\Neon_Icons_Project2\Team4-Neon_Icons-Project2\Neon_Icon\Data\bin\Debug\netcoreapp2.2\Data.pdb
 C:\Users\Nathan\GitHub\Neon_Icons_Project2\Team4-Neon_Icons-Project2\Neon_Icon\Data\obj\Debug\netcoreapp2.2\Data.dll
 C:\Users\Nathan\GitHub\Neon_Icons_Project2\Team4-Neon_Icons-Project2\Neon_Icon\Data\obj\Debug\netcoreapp2.2\Data.pdb
+C:\Users\guill\Repos\Tuyub_Guillermo_Project2\Team4-Neon_Icons-Project2\Neon_Icon\Data\obj\Debug\netcoreapp2.2\Data.dll
+C:\Users\guill\Repos\Tuyub_Guillermo_Project2\Team4-Neon_Icons-Project2\Neon_Icon\Data\obj\Debug\netcoreapp2.2\Data.pdb
