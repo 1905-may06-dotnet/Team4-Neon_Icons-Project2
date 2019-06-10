@@ -11,32 +11,30 @@
 
 
 ## Objective:
-Develop a full-stack web application utilizing the Microsoft tech-stack.
+Neon Icons is a full-stack web application for displaying the current weather forecast with accompanying music. The user will register on our site, and the application will query a weather API with the provided location. Logic in the back-end will reference an enumeration to map the current forecast to an appropriate genre, which will then query a music API and play a song. 
 
-### MVP:
-A web application which provides the current weather forecast and corresponding music.
+Additionally, the user will be able to set custom preferences for weather and genre matches in order to personalize the experience.
 
-### Architecture
-This project will be developed in accordance with SOLID design principles, and produce a layered architecture.
-
-### Development Strategy
-We will observe Agile methodologies in our development approach.
+We will observe Agile methodologies in our development approach. This project will be developed in accordance with SOLID design principles, and produce a layered architecture. 
 
 ## Technologies
 A variety of full-stack technologies will come together to produce this application.
 
-### Front-End:
-1. Microsoft MVC framework will present the views
-2. We will employ neon weather icons from Iconfu
-3. Stylization and UI will be coded in HTML, CSS, JavaScript
+### IDEs:
+1. Visual Studio
+2. Azure Data Studio
 
-### Back-End:
-1. Microsoft MVC framework will handle the controllers
-2. This application will be developed in C#
-3. The website will be deployed on Azure DevOps
+### Languages:
+1. C#
+2. SQL
+3. Angular
+4. Command Line
+
+### Tools:
+1. Azure DevOps
+2. Git
+3. Entity Framework
 
 ### Data:
-1. Microsoft MVC framework will handle the models
-2. The relevant APIs for this project will be OpenWeather and Spotify
-3. Entity Framework will manipulate the data objects
-4. Our SQL database will be hosted on Azure Cloud
+1. OpenWeather API
+2. Spotify API
