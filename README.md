@@ -27,13 +27,14 @@ A variety of full-stack technologies will come together to produce this applicat
 ### Languages:
 1. C#
 2. SQL
-3. Angular
-4. Command Line
+3. TypeScript
 
 ### Tools:
-1. Azure DevOps
+1. Microsoft Azure
 2. Git
 3. Entity Framework
+4. Angular
+5. Command Line
 
 ### Data:
 1. OpenWeather API
