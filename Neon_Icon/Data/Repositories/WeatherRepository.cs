@@ -8,7 +8,7 @@ namespace Data.Repositories
 {
     class WeatherRepository : IWeatherRepository
     {
-        public Weather GetWeather()
+        public IEnumerable<Weather> GetWeather()
         {
             throw new NotImplementedException();
         }
