@@ -24,5 +24,10 @@ namespace Data.Repositories
         {
             return Mapper.Map(DatabaseInstance.GetContext().Users.FirstOrDefault(u => u.Username == username));
         }
+
+        public void UpdateLocation (User user)
+        {
+            DatabaseInstance.GetContext().Locations.Update(Mapper.Map(user.location));
+        }
     }
 }
