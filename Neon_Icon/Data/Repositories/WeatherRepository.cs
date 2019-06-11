@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using System.Text;
 using Domain.DomainEntities;
 using Domain.Repositories;
+using System.Linq;
+using Data.Entities;
+
+
 
 namespace Data.Repositories
 {
     class WeatherRepository : IWeatherRepository
     {
-        public IEnumerable<Weather> GetWeather()
+        public IEnumerable<Domain.DomainEntities.Weather> GetWeather()
         {
-            throw new NotImplementedException();
+            return DatabaseInstance.GetContext().Weather.Select(x => Mapper.Map(x));
         }
 
-        public Weather GetWeather(int id)
+        public Domain.DomainEntities.Weather GetWeather(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map(DatabaseInstance.GetContext().Weather.Where(x => x.Id == id).FirstOrDefault());
         }
 
-        public Weather GetWeather(Weather type)
+        public Domain.DomainEntities.Weather GetWeather(Domain.DomainEntities.Weather type)
         {
-            throw new NotImplementedException();
+            return Mapper.Map(DatabaseInstance.GetContext().Weather.Where(x => x.Type == type.type && x.Description == type.description).FirstOrDefault());
         }
     }
 }
