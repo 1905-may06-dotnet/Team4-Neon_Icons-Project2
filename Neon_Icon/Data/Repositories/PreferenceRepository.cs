@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using Domain.DomainEntities;
 using Domain.Repositories;
 
@@ -10,17 +11,20 @@ namespace Data.Repositories
     {
         public void DeletePreference(Preference preference)
         {
-            throw new NotImplementedException();
+            DatabaseInstance.GetContext().Remove(Mapper.Map(preference));
         }
 
         public IEnumerable<Preference> GetPreferences(int userid)
         {
-            throw new NotImplementedException();
+            return Mapper.Map(DatabaseInstance.GetContext().Preferences.Where(x => x.UserId == userid).ToAsyncEnumerable().ToEnumerable());
         }
 
         public void SetPreference(Preference preference)
         {
-            throw new NotImplementedException();
+            if (preference != null)
+                DatabaseInstance.GetContext().Add(Mapper.Map(preference));
+            else
+                DatabaseInstance.GetContext().Update(Mapper.Map(preference));
         }
     }
 }
