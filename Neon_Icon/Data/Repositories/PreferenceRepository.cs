@@ -21,10 +21,14 @@ namespace Data.Repositories
 
         public void SetPreference(Preference preference)
         {
-            if (preference != null)
-                DatabaseInstance.GetContext().Add(Mapper.Map(preference));
+            var check = DatabaseInstance.GetContext().Preferences.Where(x => x.UserId == preference.user_id && x.WeatherId == preference.weather_id).FirstOrDefault();
+            if (check == null)
+                DatabaseInstance.GetContext().Add(Mapper.Map(preference));  
             else
+            {
+                preference.preference_id = check.Id;
                 DatabaseInstance.GetContext().Update(Mapper.Map(preference));
+            }
         }
     }
 }
