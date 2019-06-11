@@ -8,5 +8,7 @@ namespace Domain.Repositories
     public interface IGenreRepository
     {
         IEnumerable<Genre> GetGenres();
+        void Create(Genre genre);
+        Genre Find(int genreId);
     }
 }

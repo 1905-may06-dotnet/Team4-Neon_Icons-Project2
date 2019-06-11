@@ -7,7 +7,7 @@ namespace Domain.Repositories
 {
     public interface IWeatherRepository
     {
-        Weather GetWeather();
+        IEnumerable<Weather> GetWeather();
         Weather GetWeather(int id);
         Weather GetWeather(Weather type);
     }
