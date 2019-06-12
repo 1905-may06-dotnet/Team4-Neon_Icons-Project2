@@ -59,6 +59,7 @@ steps:
 # - task: Docker@2
 #   inputs:
 #     containerRegistry: 'NeonIconsContainerRegistry'
+#     repository: 'neonicons'
 #     command: 'buildAndPush'
 #     Dockerfile: '**/Dockerfile'
 #   displayName: 'docker build'
