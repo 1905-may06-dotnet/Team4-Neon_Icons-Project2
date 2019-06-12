@@ -68,6 +68,6 @@ steps:
     azureSubscription: 'Free Trial(d30e4b38-6958-43b6-ad79-a05f240c8380)'
     appType: 'webApp'
     appName: 'NeonIcons'
-    package: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
   displayName: 'publish to server'
