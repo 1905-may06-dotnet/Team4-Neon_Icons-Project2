@@ -54,8 +54,14 @@ steps:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  displayName: 'dotnet publish'
 
-
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'NeonIconsContainerRegistry'
+#     command: 'buildAndPush'
+#     Dockerfile: '**/Dockerfile'
+#   displayName: 'docker build'
 
 - task: AzureWebApp@1
   inputs:
@@ -64,3 +70,4 @@ steps:
     appName: 'NeonIcons'
     package: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
     deploymentMethod: 'auto'
+  displayName: 'publish to server'
