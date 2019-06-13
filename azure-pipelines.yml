@@ -59,13 +59,13 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
   displayName: 'dotnet publish'
 
-- script: |
-    docker build -t $(dockerId)/$(imageName) .
-    docker login -u $(dockerId) -p $(pswd)
-    docker push $(dockerId)/$(imageName)
-  env: 
-    pswd: $(dockerPassword)
-  displayName: 'docker build and push'
+# - script: |
+#     docker build -t $(dockerId)/$(imageName) .
+#     docker login -u $(dockerId) -p $(pswd)
+#     docker push $(dockerId)/$(imageName)
+#   env: 
+#     pswd: $(dockerPassword)
+#   displayName: 'docker build and push'
 
 - task: AzureWebApp@1
   inputs:
