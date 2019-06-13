@@ -16,6 +16,10 @@ variables:
   pathtoproject: 'Neon_Icon/WebClient'
   pathtotest: 'Neon_Icon/Testing'
 
+  dockerid: 'revatureproject2neonicons'
+  dockerpw: 'neonicons'
+  imagename: 'NeonIcons'
+
 steps:
 - task: SonarCloudPrepare@1
   inputs:
@@ -56,13 +60,10 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
   displayName: 'dotnet publish'
 
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'NeonIconsContainerRegistry'
-#     repository: 'neonicons'
-#     command: 'buildAndPush'
-#     Dockerfile: '**/Dockerfile'
-#   displayName: 'docker build'
+- script: |
+    docker build -t $(dockerid)/$(imagename) .
+    docker login -u $(dockerid) -p $(dockerpw) $(dockerid).azurecr.io
+    docker push $(dockerid).azurecr.io/$(imagename)
 
 - task: AzureWebApp@1
   inputs:
