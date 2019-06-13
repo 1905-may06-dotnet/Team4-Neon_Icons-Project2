@@ -17,8 +17,7 @@ variables:
   pathtotest: 'Neon_Icon/Testing'
 
   dockerid: 'revatureproject2neonicons'
-  dockerpw: 'neonicons'
-  imagename: 'NeonIcons'
+  imagename: 'neonicons'
 
 steps:
 - task: SonarCloudPrepare@1
