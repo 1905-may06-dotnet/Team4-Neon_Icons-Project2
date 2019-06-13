@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace WebClient.Controllers
 {
@@ -10,6 +12,17 @@ namespace WebClient.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IPreferenceRepository pdb;
+        private readonly IWeatherRepository wdb;
+        //userrepo tentative
+
+        ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb)
+        {
+            this.pdb = pdb;
+            this.wdb = wdb;
+        }
+
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -18,14 +31,27 @@ namespace WebClient.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{zip}")]
+        public ActionResult<Domain.DomainEntities.Weather> GetWeather(string zip)
         {
-            Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { id = id };
+            Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
             Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location);
-            return $"type = {weather.type}, description = {weather.description}";
+            return weather;
         }
+        // GET api/values/5
+        [HttpGet("{zip}")]
+        public ActionResult<Domain.DomainEntities.Weather> GetDefaultGenre(string zip)
+        {
+            Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
+            ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
+            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location);
+            weather = wdb.GetWeather(weather);
+            return weather;
+        }
+
+
+        // GET a user's preferences, else display weather to genre pairs.
 
         // POST api/values
         [HttpPost]
