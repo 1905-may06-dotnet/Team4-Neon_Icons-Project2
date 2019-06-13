@@ -61,8 +61,10 @@ steps:
 
 - script: |
     docker build -t $(dockerid)/$(imagename) .
-    docker login -u $(dockerid) -p $(dockerPassword)
+    docker login -u $(dockerid) -p $(pswd)
     docker push $(dockerid)/$(imagename)
+  env: 
+    pswd: $(dockerPassword)
   displayName: 'docker build and push'
 
 - task: AzureWebApp@1
