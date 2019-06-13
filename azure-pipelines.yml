@@ -67,14 +67,22 @@ steps:
 #     pswd: $(dockerPassword)
 #   displayName: 'docker build and push'
 
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'NeonIconsContainerRegistry'
+#     repository: 'neonicons'
+#     command: 'buildAndPush'
+#     Dockerfile: '**/Dockerfile'
+#   env:
+#     ArtifactDirectory: Build.ArtifactStagingDirectory
+
 - task: Docker@2
   inputs:
     containerRegistry: 'NeonIconsContainerRegistry'
     repository: 'neonicons'
-    command: 'buildAndPush'
+    command: 'build'
     Dockerfile: '**/Dockerfile'
-  env:
-    ArtifactDirectory: Build.ArtifactStagingDirectory
+    arguments: '--build-arg ArtifactDirectory=Build.ArtifactStagingDirectory'
 
 - task: AzureWebApp@1
   inputs:
