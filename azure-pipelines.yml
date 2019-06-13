@@ -67,6 +67,13 @@ steps:
 #     pswd: $(dockerPassword)
 #   displayName: 'docker build and push'
 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'NeonIconsContainerRegistry'
+    repository: 'neonicons'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free Trial(d30e4b38-6958-43b6-ad79-a05f240c8380)'
