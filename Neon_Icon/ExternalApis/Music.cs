@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain.Apis
+namespace ExternalApis
 {
-    public interface IMusicApi
+    class Music
     {
     }
 }
