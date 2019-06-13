@@ -21,7 +21,10 @@ namespace WebClient.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { id = id };
+            ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
+            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location);
+            return $"type = {weather.type}, description = {weather.description}";
         }
 
         // POST api/values
