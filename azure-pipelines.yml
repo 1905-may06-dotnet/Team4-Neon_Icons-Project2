@@ -60,7 +60,7 @@ steps:
   displayName: 'dotnet publish'
 
 - script: |
-    docker build -t $(dockerid)/$(imagename) . --build-arg ArtifactDirectory=Build.ArtifactStagingDirectory
+    docker build -t $(dockerid)/$(imagename) .
     docker login -u $(dockerid) -p $(dockerPassword)
     docker push $(dockerid)/$(imagename)
   displayName: 'docker build and push'
