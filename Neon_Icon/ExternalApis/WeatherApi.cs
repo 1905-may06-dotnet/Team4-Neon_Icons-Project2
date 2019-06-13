@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace ExternalApis
 {
-    class WeatherApi : IWeatherApi
+    public class WeatherApi : IWeatherApi
     {
         Uri BaseUri = new Uri("http://api.openweathermap.org/data/2.5/weather/");
         string key = "6074eaf3e50f0388ead6efd096db41ad";
@@ -25,8 +25,11 @@ namespace ExternalApis
                 var result = response.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    string data = result.Content.ReadAsStringAsync().ToString();
-                    JObject weatherObject = JObject.Parse(data);
+
+                    var data = result.Content.ReadAsStringAsync();
+                    data.Wait();
+                    string weatherdata = data.Result;
+                    JObject weatherObject = JObject.Parse(weatherdata);
                     JToken results = weatherObject["weather"].Children().ToList().FirstOrDefault();
 
                     WeatherJSON weatherJson = results.ToObject<WeatherJSON>();
