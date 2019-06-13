@@ -16,7 +16,22 @@ variables:
   pathtoproject: 'Neon_Icon/WebClient'
   pathtotest: 'Neon_Icon/Testing'
 
+  dockerid: 'revatureproject2neonicons'
+  imagename: 'neonicons'
+
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'NeonIcons'
+    organization: 'neoniconsproject2'
+    scannerMode: 'MSBuild'
+    projectKey: 'neoniconsproject2'
+    projectName: 'Neon Icons'
+    extraProperties: |
+      sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
+      sonar.cs.vstest.reportsPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
+  displayName: 'Sonar Prepare Analysis'
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: $(pathtosolution)
@@ -24,18 +39,37 @@ steps:
 - script: dotnet test
     --configuration $(buildConfiguration)
     --no-build
+    --results-directory $(Build.ArtifactStagingDirectory)/test/
+      /p:CollectCoverage=true
+      /p:CoverletOutputFormat=opencover
+      /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
   displayName: 'dotnet test'
   workingDirectory: $(pathtosolution)
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
     projects: '$(pathtoproject)/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  displayName: 'dotnet publish'
+
+- script: |
+    docker build -t $(dockerid)/$(imagename) . --build-arg ArtifactDirectory=Build.ArtifactStagingDirectory
+    docker login -u $(dockerid) -p $(dockerPassword)
+    docker push $(dockerid)/$(imagename)
+  displayName: 'docker build and push'
 
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free Trial(d30e4b38-6958-43b6-ad79-a05f240c8380)'
     appType: 'webApp'
     appName: 'NeonIcons'
-    package: '$(System.DefaultWorkingDirectory)/$(pathtoproject)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
+  displayName: 'publish to server'
