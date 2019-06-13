@@ -73,6 +73,8 @@ steps:
     repository: 'neonicons'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+  env:
+    ArtifactDirectory: Build.ArtifactStagingDirectory
 
 - task: AzureWebApp@1
   inputs:
