@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-
-namespace WebClient.Controllers
+    
+namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
