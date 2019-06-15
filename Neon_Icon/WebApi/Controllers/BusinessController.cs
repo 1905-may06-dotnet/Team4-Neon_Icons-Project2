@@ -17,55 +17,50 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LoginUser(IFormCollection collection, Models.User client)
+        public ActionResult LoginUser(Models.User client)
         {
-            ViewData["Message"] = "";
-
             var validUser = db.Find(client.username);
 
             if (validUser != null)
             {
                 if (validUser.password == client.password)
                 {
-                    return View();
+                    return Ok();
                 }
                 else
                 {
-                    ViewData["Message"] = "The password you entered is incorrect.";
-                    return View(/*TODO landing page goes here*/);
+                    return BadRequest("password");
                 }
             }
             else
             {
-            ViewData["Message"] = "This username does not exist.";
-            return View();
+                return BadRequest("username");
             }
         }
 
         [HttpPost]
-        public ActionResult RegisterUser(IFormCollection collection, Models.User client)
+        public ActionResult RegisterUser(Models.User client)
         {
             User newUser = new User();
 
-            newUser.id = client.id;
             newUser.username = client.username;
             newUser.password = client.password;
 
             //Use this location to retrieve the forecast
             Location newLocation = new Location();
             newLocation.zip = client.location;
+            newUser.location = newLocation;
 
             var existingUser = db.Find(client.username);
 
             if (existingUser == null)
             {
                 db.Create(newUser);
-                return View(/*TODO Landing Page Goes Here*/);
+                return Ok();
             }
             else
             {
-                ViewData["Message"] = "This username is taken";
-                return View();
+                return BadRequest();
             }
         }
 
