@@ -36,19 +36,21 @@ namespace WebApi.Controllers
         {
             Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
-            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location);
+            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
             return weather;
         }
-        // GET api/values/5
-        [HttpGet("{zip}")]
-        public ActionResult<Domain.DomainEntities.Weather> GetDefaultGenre(string zip)
-        {
-            Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
-            ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
-            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location);
-            weather = wdb.GetWeather(weather);
-            return weather;
-        }
+
+        //TODO: What is this
+        //// GET api/values/5
+        //[HttpGet("{zip}")]
+        //public ActionResult<Domain.DomainEntities.Weather> GetDefaultGenre(string zip)
+        //{
+        //    Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
+        //    ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
+        //    Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
+        //    weather = wdb.GetWeather(weather);
+        //    return weather;
+        //}
 
 
         // GET a user's preferences, else display weather to genre pairs.

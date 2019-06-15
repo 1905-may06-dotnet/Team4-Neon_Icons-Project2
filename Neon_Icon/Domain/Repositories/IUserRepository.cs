@@ -10,5 +10,6 @@ namespace Domain.Repositories
         void Create(User user);
         User Find(int userId);
         User Find(string userName);
+        void Delete(User user);
     }
 }

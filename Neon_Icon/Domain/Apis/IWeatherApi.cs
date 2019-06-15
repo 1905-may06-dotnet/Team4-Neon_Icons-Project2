@@ -7,6 +7,6 @@ namespace Domain.Apis
 {
     public interface IWeatherApi
     {
-        Weather GetWeatherByLocation(Location location);
+        Weather GetWeatherByLocation(string zip);
     }
 }

@@ -15,12 +15,12 @@ namespace ExternalApis
         Uri BaseUri = new Uri("http://api.openweathermap.org/data/2.5/weather/");
         string key = "6074eaf3e50f0388ead6efd096db41ad";
 
-        public Weather GetWeatherByLocation(Location location)
+        public Weather GetWeatherByLocation(string zip)
         {
             using(HttpClient client = new HttpClient())
             {
                 client.BaseAddress = BaseUri;
-                var response = client.GetAsync($"?zip={location.zip}&APPID={key}");
+                var response = client.GetAsync($"?zip={zip}&APPID={key}");
                 response.Wait();
                 var result = response.Result;
                 if (result.IsSuccessStatusCode)

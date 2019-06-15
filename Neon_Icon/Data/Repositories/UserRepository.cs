@@ -29,5 +29,10 @@ namespace Data.Repositories
         {
             DatabaseInstance.GetContext().Locations.Update(Mapper.Map(user.location));
         }
+
+        public void Delete (User user)
+        {
+            DatabaseInstance.GetContext().Remove(Mapper.Map(user));
+        }
     }
 }
