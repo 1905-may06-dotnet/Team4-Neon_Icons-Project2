@@ -14,13 +14,13 @@ namespace WebApi.Controllers
     {
         private readonly IPreferenceRepository pdb;
         private readonly IWeatherRepository wdb;
-        //userrepo tentative
+        //User Repo tentative
 
-        ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb)
-        {
-            this.pdb = pdb;
-            this.wdb = wdb;
-        }
+        //ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb)
+        //{
+        //    this.pdb = pdb;
+        //    this.wdb = wdb;
+        //}
 
 
         // GET api/values

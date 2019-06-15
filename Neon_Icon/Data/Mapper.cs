@@ -9,6 +9,7 @@ namespace Data
 {
     public static class Mapper
     {
+        // A class which maps data and domain entities
         public static DomainEntities.Location Map(Entities.Locations l)
         {
             if (l == null) { return null; }

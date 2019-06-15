@@ -16,7 +16,7 @@ namespace Data.Repositories
 
         public IEnumerable<Preference> GetPreferences(int userid)
         {
-            return Mapper.Map(DatabaseInstance.GetContext().Preferences.Where(x => x.UserId == userid).ToAsyncEnumerable().ToEnumerable());
+            return Mapper.Map(DatabaseInstance.GetContext().Preferences.Where(x => x.UserId == userid));
         }
 
         public void SetPreference(Preference preference)
