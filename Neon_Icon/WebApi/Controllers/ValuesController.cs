@@ -14,13 +14,13 @@ namespace WebApi.Controllers
     {
         private readonly IPreferenceRepository pdb;
         private readonly IWeatherRepository wdb;
-        //userrepo tentative
+        //User Repo tentative
 
-        ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb)
-        {
-            this.pdb = pdb;
-            this.wdb = wdb;
-        }
+        //ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb)
+        //{
+        //    this.pdb = pdb;
+        //    this.wdb = wdb;
+        //}
 
 
         // GET api/values
@@ -46,7 +46,7 @@ namespace WebApi.Controllers
             Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
             Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location);
-            weather = wdb.GetWeather(weather);
+    
             return weather;
         }
 
