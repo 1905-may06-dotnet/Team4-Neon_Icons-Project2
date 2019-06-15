@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Data.Repositories;
+using Domain.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace WebClient
+namespace WebApi
 {
     public class Startup
     {
@@ -31,7 +33,9 @@ namespace WebClient
             services.AddSession();
             services.AddDbContext<Data.Entities.Context>(optionsAction => optionsAction.UseSqlServer(Configuration.GetConnectionString("Context")));
 
-
+            services.AddScoped<IPreferenceRepository, PreferenceRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IWeatherRepository, WeatherRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

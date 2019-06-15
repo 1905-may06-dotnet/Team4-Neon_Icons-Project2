@@ -7,7 +7,7 @@ using Domain.Repositories;
 
 namespace Data.Repositories
 {
-    class PreferenceRepository : IPreferenceRepository
+    public class PreferenceRepository : IPreferenceRepository
     {
         public void DeletePreference(Preference preference)
         {

@@ -9,6 +9,6 @@ namespace Domain.DomainEntities
         public int weather_id { get; set; }
         public string type { get; set; }
         public string description { get; set; }
-        public int default_genre { get; set; }
+        public string default_genre { get; set; }
     }
 }

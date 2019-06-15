@@ -8,7 +8,7 @@ using Domain.Repositories;
 
 namespace Data.Repositories
 {
-    class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         public void Create(User user)
         {

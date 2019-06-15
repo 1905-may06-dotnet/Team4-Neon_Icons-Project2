@@ -20,7 +20,7 @@ namespace ExternalApis
             using(HttpClient client = new HttpClient())
             {
                 client.BaseAddress = BaseUri;
-                var response = client.GetAsync($"?id={location.id}&APPID={key}");
+                var response = client.GetAsync($"?zip={location.zip}&APPID={key}");
                 response.Wait();
                 var result = response.Result;
                 if (result.IsSuccessStatusCode)
