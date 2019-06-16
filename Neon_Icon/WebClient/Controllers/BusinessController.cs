@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.DomainEntities;
+using Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebClient.Controllers
@@ -16,6 +18,7 @@ namespace WebClient.Controllers
 
         public IActionResult GetWeatherForUser (string username)
         {
+
             //TODO get weather for username
             return null;
         }
@@ -25,5 +28,6 @@ namespace WebClient.Controllers
             //TODO get next song based on username preferences
             return null;
         }
+
     }
 }

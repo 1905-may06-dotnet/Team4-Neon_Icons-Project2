@@ -17,7 +17,7 @@ namespace ExternalApis
 
         public Weather GetWeatherByLocation(Location location)
         {
-            using(HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = BaseUri;
                 var response = client.GetAsync($"?id={location.id}&APPID={key}");

@@ -7,7 +7,7 @@ using Domain.Repositories;
 
 namespace Data.Repositories
 {
-    class GenreRepository : IGenreRepository
+    public class GenreRepository : IGenreRepository
     {
         public IEnumerable<Genre> GetGenres()
         {
