@@ -8,7 +8,7 @@ using Domain.Repositories;
 
 namespace Data.Repositories
 {
-    class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         public void Create(User user)
         {
@@ -28,6 +28,11 @@ namespace Data.Repositories
         public void UpdateLocation (User user)
         {
             DatabaseInstance.GetContext().Locations.Update(Mapper.Map(user.location));
+        }
+
+        public void Delete (User user)
+        {
+            DatabaseInstance.GetContext().Remove(Mapper.Map(user));
         }
     }
 }

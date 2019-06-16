@@ -6,11 +6,9 @@ using Domain.Repositories;
 using System.Linq;
 using Data.Entities;
 
-
-
 namespace Data.Repositories
 {
-    class WeatherRepository : IWeatherRepository
+    public class WeatherRepository : IWeatherRepository
     {
         public IEnumerable<Domain.DomainEntities.Weather> GetWeather()
         {
@@ -24,7 +22,7 @@ namespace Data.Repositories
 
         public Domain.DomainEntities.Weather GetWeather(Domain.DomainEntities.Weather type)
         {
-            return Mapper.Map(DatabaseInstance.GetContext().Weather.Where(x => x.Type == type.type && x.Description == type.description).FirstOrDefault());
+            return Mapper.Map(DatabaseInstance.GetContext().Weather.Where(x => x.Type == type.type).FirstOrDefault());
         }
     }
 }
