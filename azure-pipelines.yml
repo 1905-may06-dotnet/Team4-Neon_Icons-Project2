@@ -14,7 +14,7 @@ variables:
   buildConfiguration: 'Release'
   pathtosolution: 'Neon_Icon/'
   pathtoproject: 'Neon_Icon/WebClient'
-  pathtotest: 'Neon_Icon/Testing'
+  pathtotest: 'Neon_Icon/Test'
 
   dockerId: 'revatureproject2neonicons'
   imageName: 'neonicons'
