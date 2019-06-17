@@ -4,6 +4,7 @@ using ExternalApis;
 using WebApi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using Data.Repositories;
 
 namespace Test
 {
@@ -15,10 +16,10 @@ namespace Test
     {
         private readonly IPreferenceRepository pdb;
         private readonly IWeatherRepository wdb;
-        WeatherApiTest(IPreferenceRepository pdb, IWeatherRepository wdb)
+        WeatherApiTest()
         {
-            this.pdb = pdb;
-            this.wdb = wdb;
+            this.pdb = new PreferenceRepository();
+            this.wdb = new WeatherRepository();
         }
 
         [TestMethod]
