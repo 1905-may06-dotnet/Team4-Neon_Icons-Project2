@@ -59,6 +59,7 @@ namespace WebApi.Controllers
             else
             {
                 return Ok(ModelMapper.Map(weather));
+
             }
         }
     }

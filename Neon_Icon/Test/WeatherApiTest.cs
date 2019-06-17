@@ -15,12 +15,14 @@ namespace Test
     public class WeatherApiTest
     {
         private readonly IPreferenceRepository pdb;
+
         private readonly IWeatherRepository wdb;
         WeatherApiTest()
         {
             this.pdb = new PreferenceRepository();
             this.wdb = new WeatherRepository();
         }
+
 
         [TestMethod]
         public void GetWeatherByLocation_ValidZip_NotNull()
@@ -54,7 +56,7 @@ namespace Test
             Weather testWeather = new Weather();
             WeatherApi testWeatherApi = new WeatherApi();
             testWeather = testWeatherApi.GetWeatherByLocation(zipCheck);
-
+            WeatherRepository wdb = new WeatherRepository();
             var types = wdb.GetWeather();
             foreach (var type in types)
             {
