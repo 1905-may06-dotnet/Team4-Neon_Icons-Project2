@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.DomainEntities;
 using Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,7 +40,36 @@ namespace WebApi.Controllers
             Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
             return weather;
         }
+        public ActionResult<string> GetGenre(User user)
+        {
+            IEnumerable<Preference> allPreference;
 
+            ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
+            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(user.location.zip);
+            Domain.DomainEntities.Preference preference = new Domain.DomainEntities.Preference();
+
+            allPreference = pdb.GetPreferences(user.id);
+
+            preference = allPreference.Where(x => x.user_id == user.id && weather.weather_id == x.weather_id).FirstOrDefault();
+            if (preference != null)
+            {
+                return $"Weather: {weather.type} + Preferred Genre: {preference.genre}";
+            }
+            else
+            {
+                //possibly set preference here
+                return $"Weather: {weather.type} + Default Genre: {weather.default_genre}";
+            }
+        }
+        //Get weather and default genre (no user) based on location
+        public ActionResult<string> GetDefaultGenre(Location location)
+        {
+
+            ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
+            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location.zip);
+            return $"Weather: {weather.type} + Genre: {weather.default_genre}";
+
+        }
         //TODO: What is this
         //// GET api/values/5
         //[HttpGet("{zip}")]
