@@ -64,8 +64,21 @@ namespace WebApi.Controllers
             }
         }
 
-        
+        [HttpPut]
+        public IActionResult UpdateLocation(string username)
+        {
+            User user = db.Find(username);
+            if (user != null)
+            {
+                db.UpdateLocation(username);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest("username");
+            }
         }
+    }
 
     //public IActionResult GetWeatherForUser(User user, Weather weather)
     //{
