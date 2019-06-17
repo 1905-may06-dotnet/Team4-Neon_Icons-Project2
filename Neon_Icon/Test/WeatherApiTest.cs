@@ -4,6 +4,7 @@ using ExternalApis;
 using WebApi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using Data.Repositories;
 
 namespace Test
 {
@@ -14,12 +15,12 @@ namespace Test
     public class WeatherApiTest
     {
         private readonly IPreferenceRepository pdb;
-        private readonly IWeatherRepository wdb;
-        WeatherApiTest(IPreferenceRepository pdb, IWeatherRepository wdb)
-        {
-            this.pdb = pdb;
-            this.wdb = wdb;
-        }
+        //private readonly IWeatherRepository wdb;
+        //WeatherApiTest(IPreferenceRepository pdb, IWeatherRepository wdb)
+        //{
+        //    this.pdb = pdb;
+        //    this.wdb = wdb;
+        //}
 
         [TestMethod]
         public void GetWeatherByLocation_ValidZip_NotNull()
@@ -53,7 +54,7 @@ namespace Test
             Weather testWeather = new Weather();
             WeatherApi testWeatherApi = new WeatherApi();
             testWeather = testWeatherApi.GetWeatherByLocation(zipCheck);
-
+            WeatherRepository wdb = new WeatherRepository();
             var types = wdb.GetWeather();
             foreach (var type in types)
             {

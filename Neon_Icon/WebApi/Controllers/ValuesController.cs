@@ -57,7 +57,7 @@ namespace WebApi.Controllers
             }
             else
             {
-                //possibly set preference here
+                //pos   sibly set preference here
                 return $"Weather: {weather.type} + Default Genre: {weather.default_genre}";
             }
         }
