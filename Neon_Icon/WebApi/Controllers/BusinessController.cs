@@ -29,12 +29,12 @@ namespace WebApi.Controllers
                 }
                 else
                 {
-                    return BadRequest("password");
+                    return Unauthorized("password");
                 }
             }
             else
             {
-                return BadRequest("username");
+                return Unauthorized("username");
             }
         }
 
@@ -60,39 +60,24 @@ namespace WebApi.Controllers
             }
             else
             {
-                return BadRequest();
+                return Unauthorized();
             }
         }
 
         [HttpPut]
-        public IActionResult UpdateLocation(string username)
+        public IActionResult UpdateLocation(Models.User client)
         {
-            User user = db.Find(username);
+            User user = db.Find(client.username);
+            user.location.zip = client.location;
             if (user != null)
             {
-                db.UpdateLocation(username);
+                db.UpdateLocation(user);
                 return Ok();
             }
             else
             {
-                return BadRequest("username");
+                return Unauthorized("username");
             }
         }
     }
-
-    //public IActionResult GetWeatherForUser(User user, Weather weather)
-    //{
-    //    //var currentweather = new 
-
-    //    //TODO get weather for username
-    //    return null;
-    //}
-
-    //public IActionResult GetNextSong(string username)
-    //{
-    //    //TODO get next song based on username preferences
-
-
-    //    return null;
-    //}
 }

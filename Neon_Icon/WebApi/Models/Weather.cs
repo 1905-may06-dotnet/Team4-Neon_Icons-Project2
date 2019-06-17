@@ -7,7 +7,7 @@ namespace WebApi.Models
 {
     public class Weather
     {
-        public int Type { get; set; }
+        public string Type { get; set; }
         public string Description { get; set; }
         public string DefaultGenre { get; set; }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Models;
 using Domain.DomainEntities;
 using Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -15,21 +16,15 @@ namespace WebApi.Controllers
     {
         private readonly IPreferenceRepository pdb;
         private readonly IWeatherRepository wdb;
-        //User Repo tentative
+        private readonly IUserRepository udb;
 
-        //ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb)
-        //{
-        //    this.pdb = pdb;
-        //    this.wdb = wdb;
-        //}
-
-
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb, IUserRepository udb)
         {
-            return new string[] { "value1", "value2" };
+            this.pdb = pdb;
+            this.wdb = wdb;
+            this.udb = udb;
         }
+
 
         // GET api/values/5
         [HttpGet("{zip}")]
@@ -37,70 +32,34 @@ namespace WebApi.Controllers
         {
             Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
-            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
-            return weather;
+            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location.zip);
+            weather = wdb.GetWeather(weather);
+            return Ok(weather);
         }
-        public ActionResult<string> GetGenre(User user)
+        public ActionResult<Models.Weather> GetGenre (Models.User client)
         {
+            //authenticate
+
             IEnumerable<Preference> allPreference;
+            Domain.DomainEntities.User user = udb.Find(client.username);
 
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
             Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(user.location.zip);
+            weather = wdb.GetWeather(weather);
             Domain.DomainEntities.Preference preference = new Domain.DomainEntities.Preference();
 
-            allPreference = pdb.GetPreferences(user.id);
+            allPreference = pdb.GetPreferences(udb.Find(user.username).id);
 
-            preference = allPreference.Where(x => x.user_id == user.id && weather.weather_id == x.weather_id).FirstOrDefault();
+            preference = allPreference.Where(x => weather.weather_id == x.weather_id).FirstOrDefault();
             if (preference != null)
             {
-                return $"Weather: {weather.type} + Preferred Genre: {preference.genre}";
+                Domain.DomainEntities.Weather weatherPreference = new Domain.DomainEntities.Weather() { type = weather.type, description = weather.description, default_genre = preference.genre };
+                return Ok(ModelMapper.Map(weatherPreference));
             }
             else
             {
-                //possibly set preference here
-                return $"Weather: {weather.type} + Default Genre: {weather.default_genre}";
+                return Ok(ModelMapper.Map(weather));
             }
-        }
-        //Get weather and default genre (no user) based on location
-        public ActionResult<string> GetDefaultGenre(Location location)
-        {
-
-            ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
-            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location.zip);
-            return $"Weather: {weather.type} + Genre: {weather.default_genre}";
-
-        }
-        //TODO: What is this
-        //// GET api/values/5
-        //[HttpGet("{zip}")]
-        //public ActionResult<Domain.DomainEntities.Weather> GetDefaultGenre(string zip)
-        //{
-        //    Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
-        //    ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
-        //    Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
-        //    weather = wdb.GetWeather(weather);
-        //    return weather;
-        //}
-
-
-        // GET a user's preferences, else display weather to genre pairs.
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
