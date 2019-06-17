@@ -24,7 +24,7 @@ namespace Data.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(DbConnection.Connection);
+               //optionsBuilder.UseSqlServer(DbConnection.Connection);
             }
         }
 
