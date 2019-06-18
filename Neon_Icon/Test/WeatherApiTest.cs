@@ -17,7 +17,7 @@ namespace Test
         private readonly IPreferenceRepository pdb;
 
         private readonly IWeatherRepository wdb;
-        WeatherApiTest()
+        public WeatherApiTest()
         {
             //this.pdb = new PreferenceRepository();
             //this.wdb = new WeatherRepository();
