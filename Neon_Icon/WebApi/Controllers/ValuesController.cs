@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
     
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -25,13 +25,6 @@ namespace WebApi.Controllers
             this.udb = udb;
         }
 
-        [HttpGet("get")]
-        public ActionResult<string> Get()
-        {
-            return "a";
-        }
-
-
         // GET api/values/5
         [HttpGet("{zip}")]
         public ActionResult<Domain.DomainEntities.Weather> GetWeather(string zip)
@@ -42,6 +35,7 @@ namespace WebApi.Controllers
             weather = wdb.GetWeather(weather);
             return Ok(weather);
         }
+        [HttpGet]
         public ActionResult<Models.Weather> GetGenre (Models.User client)
         {
             //authenticate
