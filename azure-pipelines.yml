@@ -47,6 +47,13 @@ steps:
   displayName: 'dotnet test'
   workingDirectory: $(pathtosolution)
 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '*.trx'
+    searchFolder: '$(Build.ArtifactStagingDirectory)/test'
+  displayName: 'Publish test results '
+
 - task: SonarCloudAnalyze@1
 
 - task: SonarCloudPublish@1
