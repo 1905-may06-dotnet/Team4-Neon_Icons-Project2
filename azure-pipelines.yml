@@ -52,6 +52,13 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '*.trx'
+    searchFolder: '$(Build.ArtifactStagingDirectory)/test'
+  displayName: 'Publish test results '
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
