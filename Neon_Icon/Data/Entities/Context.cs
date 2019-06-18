@@ -20,13 +20,13 @@ namespace Data.Entities
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Weather> Weather { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                //optionsBuilder.UseSqlServer(DbConnection.Connection);
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer(DbConnection.Connection);
+        //    }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
