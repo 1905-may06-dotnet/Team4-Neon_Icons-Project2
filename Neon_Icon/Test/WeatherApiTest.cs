@@ -14,13 +14,15 @@ namespace Test
     [TestClass]
     public class WeatherApiTest
     {
-        //private readonly IPreferenceRepository pdb;
-        //private readonly IWeatherRepository wdb;
-        public WeatherApiTest()
+        private readonly IPreferenceRepository pdb;
+
+        private readonly IWeatherRepository wdb;
+        WeatherApiTest()
         {
             //this.pdb = new PreferenceRepository();
             //this.wdb = new WeatherRepository();
         }
+
 
         [TestMethod]
         public void GetWeatherByLocation_ValidZip_NotNull()
