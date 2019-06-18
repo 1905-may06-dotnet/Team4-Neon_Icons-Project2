@@ -22,6 +22,7 @@ namespace Test
             //this.wdb = new WeatherRepository();
         }
 
+
         [TestMethod]
         public void GetWeatherByLocation_ValidZip_NotNull()
         {
@@ -45,6 +46,7 @@ namespace Test
 
         }
 
+<<<<<<< HEAD
         //[TestMethod]
         //public void CheckWeatherTypes_LINQ_True()
         //{
@@ -63,6 +65,26 @@ namespace Test
         //            testPassed = true;
         //        }
         //    }
+=======
+        [TestMethod]
+        public void CheckWeatherTypes_LINQ_True()
+        {
+            //This test checks if the returned weather type is in our weather entity.
+            bool testPassed = false;
+            string zipCheck = "78754"; //Austin TX
+            Weather testWeather = new Weather();
+            WeatherApi testWeatherApi = new WeatherApi();
+            testWeather = testWeatherApi.GetWeatherByLocation(zipCheck);
+            WeatherRepository wdb = new WeatherRepository();
+            var types = wdb.GetWeather();
+            foreach (var type in types)
+            {
+                if (testWeather.type == type.type)
+                {
+                    testPassed = true;
+                }
+            }
+>>>>>>> 3045e0cd1554d2accc33dbcbaaa22daee4c9208c
 
         //    Assert.IsTrue(testPassed);
 

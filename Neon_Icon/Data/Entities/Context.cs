@@ -24,7 +24,7 @@ namespace Data.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder.UseSqlServer(DbConnection.Connection);
+                optionsBuilder.UseSqlServer("Server=pizzaboxserver.database.windows.net;Database=NeonIconsDb;user id=pizzapizza;Password=Pizza123;");
             }
         }
 

@@ -18,11 +18,17 @@ namespace WebApi.Controllers
         private readonly IWeatherRepository wdb;
         private readonly IUserRepository udb;
 
-        ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb, IUserRepository udb)
+        public ValuesController(IPreferenceRepository pdb, IWeatherRepository wdb, IUserRepository udb)
         {
             this.pdb = pdb;
             this.wdb = wdb;
             this.udb = udb;
+        }
+
+        [HttpGet("get")]
+        public ActionResult<string> Get()
+        {
+            return "a";
         }
 
 
@@ -32,7 +38,7 @@ namespace WebApi.Controllers
         {
             Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
-            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(location.zip);
+            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
             weather = wdb.GetWeather(weather);
             return Ok(weather);
         }
@@ -59,6 +65,7 @@ namespace WebApi.Controllers
             else
             {
                 return Ok(ModelMapper.Map(weather));
+
             }
         }
     }
