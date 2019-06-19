@@ -1,18 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Domain.Repositories;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace Test
 {
-    class UserTest
+    [TestClass]
+    public class UserTest
     {
-        private readonly IUserRepository udb;
-        UserTest(IUserRepository udb)
+        Dummydb db = new Dummydb();
+        public UserTest()
         {
-            this.udb = udb;
+            
         }
-
+        [TestMethod]
+        public void Find()
+        {
+            Assert.IsTrue("testUsername0" == db.mockUser.Object.Find(0).username);
+            
+        }
         public void Create_validUser_NotNull()
         {
 

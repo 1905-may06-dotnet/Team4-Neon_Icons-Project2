@@ -11,12 +11,24 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    ///<summary>\
+    ///Methods for User parameters: Login/Register/UpdateLocation
+    ///</summary>
     public class BusinessController : Controller
     {
         private readonly IUserRepository db;
 
+        public BusinessController(IUserRepository udb)
+        {
+            this.db = udb;
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+        ///<summary>
+        ///Check user for authenticity
+        ///</summary>
+        ///<param name="client"></param>
         public ActionResult LoginUser(Models.User client)
         {
             var validUser = db.Find(client.username);
@@ -37,8 +49,12 @@ namespace WebApi.Controllers
                 return Unauthorized("username");
             }
         }
-
         [HttpPost]
+        /// <summary>
+        ///Check if user already exists; on success, creates new user
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         public ActionResult RegisterUser(Models.User client)
         {
             User newUser = new User();
@@ -63,8 +79,12 @@ namespace WebApi.Controllers
                 return Unauthorized();
             }
         }
-
         [HttpPut]
+        /// <summary>
+        /// Updates the default location of the user
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         public IActionResult UpdateLocation(Models.User client)
         {
             User user = db.Find(client.username);

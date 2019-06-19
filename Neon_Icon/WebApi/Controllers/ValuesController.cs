@@ -7,7 +7,7 @@ using Domain.DomainEntities;
 using Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-    
+
 namespace WebApi.Controllers
 {
     [Route("api/[controller]/[action]")]
@@ -27,6 +27,11 @@ namespace WebApi.Controllers
 
         // GET api/values/5
         [HttpGet("{zip}")]
+        /// <summary>
+        /// Get the weather based on users zipcode
+        /// </summary>
+        /// <param name="zip"></param>
+        /// <returns></returns>
         public ActionResult<Domain.DomainEntities.Weather> GetWeather(string zip)
         {
             Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
@@ -36,7 +41,12 @@ namespace WebApi.Controllers
             return Ok(weather);
         }
         [HttpGet]
-        public ActionResult<Models.Weather> GetGenre (Models.User client)
+        /// <summary>
+        /// Get music genre based on the weather, derived from user's location
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
+        public ActionResult<Models.Weather> GetGenre(Models.User client)
         {
             //authenticate
 
@@ -64,6 +74,12 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
+        /// <summary>
+        /// Update user preference, dependent on user input
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="preference"></param>
+        /// <returns></returns>
         public ActionResult UpdatePreference (Models.UserPreference userPreference)
         {
             var user = udb.Find(userPreference.client.username);
@@ -82,6 +98,12 @@ namespace WebApi.Controllers
             return Ok(newPreference);
         }
         [HttpDelete]
+        /// <summary>
+        /// Remove user preference based on user input
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="preference"></param>
+        /// <returns></returns>
         public ActionResult RemovePreference (Models.UserPreference userPreference)
         {
             var user = udb.Find(userPreference.client.username);

@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using Domain.Repositories;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test
 {
-    class WeatherTest
+    public class WeatherTest
     {
-        private readonly IWeatherRepository wdb;
-        WeatherTest(IWeatherRepository wdb)
-        {
-            this.wdb = wdb;
-        }
+        
     }
 }
