@@ -64,8 +64,39 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public ActionResult UpdatePreference (Models.User client, Models.Weather preference) { return null; }
+        public ActionResult UpdatePreference (Models.User client, Models.Weather preference)
+        {
+            var user = udb.Find(client.username);
+            var weather = wdb.GetWeather(ModelMapper.Map(preference));
+            Domain.DomainEntities.Preference newPreference = new Domain.DomainEntities.Preference()
+            {
+                user_id = user.id,
+                weather_id = weather.weather_id,
+                genre = weather.default_genre
+            };
+            if (newPreference.user_id == 0 || newPreference.weather_id == 0)
+            {
+                return NotFound(newPreference);
+            }
+            pdb.SetPreference(newPreference);
+            return Ok(newPreference);
+        }
         [HttpDelete]
-        public ActionResult RemovePreference (Models.User client, Models.Weather preference) { return null; }
+        public ActionResult RemovePreference (Models.User client, Models.Weather preference)
+        {
+            var user = udb.Find(client.username);
+            var weather = wdb.GetWeather(ModelMapper.Map(preference));
+            Domain.DomainEntities.Preference newPreference = new Domain.DomainEntities.Preference()
+            {
+                user_id = user.id,
+                weather_id = weather.weather_id
+            };
+            if (newPreference.user_id == 0 || newPreference.weather_id == 0)
+            {
+                return NotFound(newPreference);
+            }
+            pdb.DeletePreference(newPreference);
+            return Ok(newPreference);
+        }
     }
 }
