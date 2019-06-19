@@ -27,6 +27,11 @@ namespace WebApi.Controllers
 
         // GET api/values/5
         [HttpGet("{zip}")]
+        /// <summary>
+        /// Get the weather based on users zipcode
+        /// </summary>
+        /// <param name="zip"></param>
+        /// <returns></returns>
         public ActionResult<Domain.DomainEntities.Weather> GetWeather(string zip)
         {
             Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
@@ -36,6 +41,11 @@ namespace WebApi.Controllers
             return Ok(weather);
         }
         [HttpGet]
+        /// <summary>
+        /// Get music genre based on the weather, derived from user's location
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         public ActionResult<Models.Weather> GetGenre (Models.User client)
         {
             //authenticate
@@ -62,41 +72,15 @@ namespace WebApi.Controllers
 
             }
         }
-
         [HttpPut]
-        public ActionResult UpdatePreference (Models.User client, Models.Weather preference)
-        {
-            var user = udb.Find(client.username);
-            var weather = wdb.GetWeather(ModelMapper.Map(preference));
-            Domain.DomainEntities.Preference newPreference = new Domain.DomainEntities.Preference()
-            {
-                user_id = user.id,
-                weather_id = weather.weather_id,
-                genre = weather.default_genre
-            };
-            if (newPreference.user_id == 0 || newPreference.weather_id == 0)
-            {
-                return NotFound(newPreference);
-            }
-            pdb.SetPreference(newPreference);
-            return Ok(newPreference);
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="preference"></param>
+        /// <returns></returns>
+        public ActionResult UpdatePreference (Models.User client, Models.Weather preference) { return null; }
         [HttpDelete]
-        public ActionResult RemovePreference (Models.User client, Models.Weather preference)
-        {
-            var user = udb.Find(client.username);
-            var weather = wdb.GetWeather(ModelMapper.Map(preference));
-            Domain.DomainEntities.Preference newPreference = new Domain.DomainEntities.Preference()
-            {
-                user_id = user.id,
-                weather_id = weather.weather_id
-            };
-            if (newPreference.user_id == 0 || newPreference.weather_id == 0)
-            {
-                return NotFound(newPreference);
-            }
-            pdb.DeletePreference(newPreference);
-            return Ok(newPreference);
-        }
+        public ActionResult RemovePreference (Models.User client, Models.Weather preference) { return null; }
     }
 }
