@@ -14,8 +14,9 @@ pool:
 variables:
   buildConfiguration: 'Release'
   pathtosolution: 'Neon_Icon/'
-  pathtoproject: 'Neon_Icon/WebClient'
-  pathtotest: 'Neon_Icon/Test'
+  pathtoapiproject: 'Neon_Icon/WebApi'
+  #pathtoproject: 'Neon_Icon'
+  #pathtotest: 'Neon_Icon/Test'
 
   dockerId: 'revatureproject2neonicons'
   imageName: 'neonicons'
@@ -64,9 +65,9 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
-    projects: '$(pathtoproject)/*.csproj'
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-  displayName: 'dotnet publish'
+    projects: '$(pathtoapiproject)/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/api'
+  displayName: 'dotnet publish api'
 
 # - task: Docker@2
 #   inputs:
@@ -88,7 +89,7 @@ steps:
   inputs:
     azureSubscription: 'Free Trial(d30e4b38-6958-43b6-ad79-a05f240c8380)'
     appType: 'webApp'
-    appName: 'NeonIcons'
-    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    appName: 'NeonIconsApi'
+    package: '$(Build.ArtifactStagingDirectory)/api/**/*.zip'
     deploymentMethod: 'auto'
-  displayName: 'publish to server'
+  displayName: 'publish api to server'
