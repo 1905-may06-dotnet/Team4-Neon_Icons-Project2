@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Domain.Repositories;
+using Data.Repositories;
 using Moq;
 using Domain.DomainEntities;
 using System.Linq;
@@ -8,16 +8,16 @@ namespace Test
 {
     public class Dummydb
     {
-        public Mock<IUserRepository> mockUser;
-        public Mock<IPreferenceRepository> mockPreference;
-        public Mock<IWeatherRepository> mockWeather;
+        public Mock<UserRepository> mockUser;
+        public Mock<PreferenceRepository> mockPreference;
+        public Mock<WeatherRepository> mockWeather;
 
         public Dummydb()
         {
 
-            this.mockUser = new Mock<IUserRepository>();
-            this.mockPreference = new Mock<IPreferenceRepository>();
-            this.mockWeather = new Mock<IWeatherRepository>();
+            this.mockUser = new Mock<UserRepository>();
+            this.mockPreference = new Mock<PreferenceRepository>();
+            this.mockWeather = new Mock<WeatherRepository>();
 
             IList<Location> locations = new List<Location>()
             {
