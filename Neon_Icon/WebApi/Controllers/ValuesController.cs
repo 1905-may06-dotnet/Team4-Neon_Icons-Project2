@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
     
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace WebApi.Controllers
             weather = wdb.GetWeather(weather);
             return Ok(weather);
         }
-        [HttpGet]
+        //[HttpGet]
         public ActionResult<Models.Weather> GetGenre (Models.User client)
         {
             //authenticate
