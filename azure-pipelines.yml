@@ -8,7 +8,8 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-latest'
+  #vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
@@ -36,15 +37,23 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: $(pathtosolution)
 
-- script: dotnet test
-    --configuration $(buildConfiguration)
-    --no-build
-    --results-directory $(Build.ArtifactStagingDirectory)/test/
-      /p:CollectCoverage=true
-      /p:CoverletOutputFormat=opencover
-      /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
-  displayName: 'dotnet test'
-  workingDirectory: $(pathtosolution)
+# - script: dotnet test
+#     --configuration $(buildConfiguration)
+#     --logger trx
+#     --no-build
+#     --results-directory $(Build.ArtifactStagingDirectory)/test/
+#       /p:CollectCoverage=true
+#       /p:CoverletOutputFormat=opencover
+#       /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
+#   displayName: 'dotnet test'
+#   workingDirectory: $(pathtosolution)
+
+# - task: PublishTestResults@2
+#   inputs:
+#     testResultsFormat: 'VSTest'
+#     testResultsFiles: '*.trx'
+#     searchFolder: '$(Build.ArtifactStagingDirectory)/test'
+#   displayName: 'Publish test results '
 
 # - task: SonarCloudAnalyze@1
 
@@ -59,21 +68,21 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
   displayName: 'dotnet publish'
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'NeonIconsContainerRegistry'
-    repository: 'neonicons'
-    command: 'build'
-    Dockerfile: '**/Dockerfile'
-    arguments: '--build-arg ArtifactDirectory=Build.ArtifactStagingDirectory'
-  displayName: 'docker build'
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'NeonIconsContainerRegistry'
+#     repository: 'neonicons'
+#     command: 'build'
+#     Dockerfile: '**/Dockerfile'
+#     arguments: '--build-arg ArtifactDirectory=Build.ArtifactStagingDirectory'
+#   displayName: 'docker build'
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'NeonIconsContainerRegistry'
-    repository: 'neonicons'
-    command: 'push'
-  displayName: 'docker push'
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'NeonIconsContainerRegistry'
+#     repository: 'neonicons'
+#     command: 'push'
+#   displayName: 'docker push'
 
 - task: AzureWebApp@1
   inputs:
