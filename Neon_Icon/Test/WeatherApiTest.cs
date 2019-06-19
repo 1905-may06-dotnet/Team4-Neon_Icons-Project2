@@ -14,9 +14,8 @@ namespace Test
     [TestClass]
     public class WeatherApiTest
     {
-        private readonly IPreferenceRepository pdb;
-
-        private readonly IWeatherRepository wdb;
+        //private readonly IPreferenceRepository pdb;
+        //private readonly IWeatherRepository wdb;
         public WeatherApiTest()
         {
             //this.pdb = new PreferenceRepository();
@@ -65,6 +64,7 @@ namespace Test
         //            testPassed = true;
         //        }
         //    }
+
 
         //    Assert.IsTrue(testPassed);
 

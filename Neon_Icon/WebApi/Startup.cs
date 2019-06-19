@@ -75,6 +75,7 @@ namespace WebApi
                 app.UseHsts();
             }
 
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseMvc(routes =>
             {
