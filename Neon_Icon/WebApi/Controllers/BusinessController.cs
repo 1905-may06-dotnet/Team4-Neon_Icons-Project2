@@ -18,6 +18,11 @@ namespace WebApi.Controllers
     {
         private readonly IUserRepository db;
 
+        public BusinessController(IUserRepository udb)
+        {
+            this.db = udb;
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         ///<summary>
