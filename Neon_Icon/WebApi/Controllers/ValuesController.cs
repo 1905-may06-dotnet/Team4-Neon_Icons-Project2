@@ -62,5 +62,10 @@ namespace WebApi.Controllers
 
             }
         }
+
+        [HttpPut]
+        public ActionResult UpdatePreference () { return null; }
+        [HttpDelete]
+        public ActionResult RemovePreference() { return null; }
     }
 }
