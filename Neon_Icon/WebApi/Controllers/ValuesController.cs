@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
     
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace WebApi.Controllers
             weather = wdb.GetWeather(weather);
             return Ok(weather);
         }
-        //[HttpGet]
+        [HttpGet]
         public ActionResult<Models.Weather> GetGenre (Models.User client)
         {
             //authenticate
@@ -64,10 +64,10 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public ActionResult UpdatePreference (Models.User client, Models.Weather preference)
+        public ActionResult UpdatePreference (Models.UserPreference userPreference)
         {
-            var user = udb.Find(client.username);
-            var weather = wdb.GetWeather(ModelMapper.Map(preference));
+            var user = udb.Find(userPreference.client.username);
+            var weather = wdb.GetWeather(ModelMapper.Map(userPreference.preference));
             Domain.DomainEntities.Preference newPreference = new Domain.DomainEntities.Preference()
             {
                 user_id = user.id,
@@ -82,10 +82,10 @@ namespace WebApi.Controllers
             return Ok(newPreference);
         }
         [HttpDelete]
-        public ActionResult RemovePreference (Models.User client, Models.Weather preference)
+        public ActionResult RemovePreference (Models.UserPreference userPreference)
         {
-            var user = udb.Find(client.username);
-            var weather = wdb.GetWeather(ModelMapper.Map(preference));
+            var user = udb.Find(userPreference.client.username);
+            var weather = wdb.GetWeather(ModelMapper.Map(userPreference.preference));
             Domain.DomainEntities.Preference newPreference = new Domain.DomainEntities.Preference()
             {
                 user_id = user.id,

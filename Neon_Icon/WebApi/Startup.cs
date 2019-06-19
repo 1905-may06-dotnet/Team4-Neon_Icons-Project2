@@ -47,8 +47,6 @@ namespace WebApi
 
            );
 
-
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSession();
@@ -75,6 +73,7 @@ namespace WebApi
                 app.UseHsts();
             }
 
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseMvc(routes =>
             {
