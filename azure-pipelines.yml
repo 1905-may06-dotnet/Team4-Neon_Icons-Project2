@@ -8,7 +8,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
@@ -41,9 +41,9 @@ steps:
     --logger trx
     --no-build
     --results-directory $(Build.ArtifactStagingDirectory)/test/
-    /p:CollectCoverage=true
-    /p:CoverletOutputFormat=opencover
-    /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
+      /p:CollectCoverage=true
+      /p:CoverletOutputFormat=opencover
+      /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
   displayName: 'dotnet test'
   workingDirectory: $(pathtosolution)
 
