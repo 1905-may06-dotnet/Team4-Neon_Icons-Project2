@@ -64,8 +64,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public ActionResult UpdatePreference () { return null; }
+        public ActionResult UpdatePreference (Models.User client, Models.Weather preference) { return null; }
         [HttpDelete]
-        public ActionResult RemovePreference() { return null; }
+        public ActionResult RemovePreference (Models.User client, Models.Weather preference) { return null; }
     }
 }
