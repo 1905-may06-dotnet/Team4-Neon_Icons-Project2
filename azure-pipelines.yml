@@ -26,6 +26,7 @@ steps:
 - task: DownloadSecureFile@1
   inputs:
     secureFile: 'DBConnection.cs'
+  displayName: 'download connection string'
 
 - task: SonarCloudPrepare@1
   inputs:
