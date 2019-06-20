@@ -21,6 +21,10 @@ variables:
   imageName: 'neonicons'
 
 steps:
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'DBConnection.cs'
+
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'NeonIcons'
