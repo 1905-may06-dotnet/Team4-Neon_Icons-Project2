@@ -20,6 +20,8 @@ variables:
   dockerId: 'revatureproject2neonicons'
   imageName: 'neonicons'
 
+  $env:DOWNLOADSECUREFILE_SECUREFILEPATH = "${pathtosolution}/Data/"
+
 steps:
 - task: DownloadSecureFile@1
   inputs:
