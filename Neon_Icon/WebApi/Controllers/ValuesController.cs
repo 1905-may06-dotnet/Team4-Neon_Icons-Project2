@@ -37,7 +37,8 @@ namespace WebApi.Controllers
             Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
             Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
-            weather = wdb.GetWeather(weather);
+            Domain.DomainEntities.Weather rweather = wdb.GetWeather(weather);
+            rweather.description = weather.description;
             return Ok(weather);
         }
         [HttpGet]
