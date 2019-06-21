@@ -63,7 +63,7 @@ namespace Test
             };
 
             mockUser.Setup(mr => mr.Find(It.IsAny<int>())).Returns((int i) => users.Where(x => x.id == i).Single());
-            mockPreference.Setup(mr => mr.GetPreferences(It.IsAny<int>())).Returns((int i) => preferences.Where(x => x.preference_id == i).Single());
+            mockPreference.Setup(mr => mr.GetPreferences(It.IsAny<int>())).Returns((int i) => preferences.Where(x => x.preference_id == i));
             mockWeather.Setup(mr => mr.GetWeather(It.IsAny<int>())).Returns((int i) => weathers.Where(x => x.weather_id == i).Single());
 
         }
