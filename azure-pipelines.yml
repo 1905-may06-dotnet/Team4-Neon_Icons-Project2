@@ -8,65 +8,72 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
-  #vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
   pathtosolution: 'Neon_Icon/'
-  pathtoproject: 'Neon_Icon/WebClient'
-  pathtotest: 'Neon_Icon/Test'
+  pathtoapiproject: 'Neon_Icon/WebApi'
+  #pathtoproject: 'Neon_Icon'
+  #pathtotest: 'Neon_Icon/Test'
 
   dockerId: 'revatureproject2neonicons'
   imageName: 'neonicons'
 
+  $env:DOWNLOADSECUREFILE_SECUREFILEPATH: "${pathtosolution}/Data/"
+
 steps:
-# - task: SonarCloudPrepare@1
-#   inputs:
-#     SonarCloud: 'NeonIcons'
-#     organization: 'neoniconsproject2'
-#     scannerMode: 'MSBuild'
-#     projectKey: 'neoniconsproject2'
-#     projectName: 'Neon Icons'
-#     extraProperties: |
-#       sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
-#       sonar.cs.vstest.reportsPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
-#   displayName: 'Sonar Prepare Analysis'
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'DBConnection.cs'
+  displayName: 'download connection string'
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'NeonIcons'
+    organization: 'neoniconsproject2'
+    scannerMode: 'MSBuild'
+    projectKey: 'neoniconsproject2'
+    projectName: 'Neon Icons'
+    extraProperties: |
+      sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
+      sonar.cs.vstest.reportsPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
+  displayName: 'Sonar Prepare Analysis'
 
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: $(pathtosolution)
 
-# - script: dotnet test
-#     --configuration $(buildConfiguration)
-#     --logger trx
-#     --no-build
-#     --results-directory $(Build.ArtifactStagingDirectory)/test/
-#       /p:CollectCoverage=true
-#       /p:CoverletOutputFormat=opencover
-#       /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
-#   displayName: 'dotnet test'
-#   workingDirectory: $(pathtosolution)
+- script: dotnet test
+    --configuration $(buildConfiguration)
+    --logger trx
+    --no-build
+    --results-directory $(Build.ArtifactStagingDirectory)/test/
+      /p:CollectCoverage=true
+      /p:CoverletOutputFormat=opencover
+      /p:CoverletOutput='$(Build.ArtifactStagingDirectory)/coverage/'
+  displayName: 'dotnet test'
+  workingDirectory: $(pathtosolution)
 
-# - task: PublishTestResults@2
-#   inputs:
-#     testResultsFormat: 'VSTest'
-#     testResultsFiles: '*.trx'
-#     searchFolder: '$(Build.ArtifactStagingDirectory)/test'
-#   displayName: 'Publish test results '
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '*.trx'
+    searchFolder: '$(Build.ArtifactStagingDirectory)/test'
+  displayName: 'Publish test results '
 
-# - task: SonarCloudAnalyze@1
+- task: SonarCloudAnalyze@1
 
-# - task: SonarCloudPublish@1
-#   inputs:
-#     pollingTimeoutSec: '300'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
-    projects: '$(pathtoproject)/*.csproj'
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-  displayName: 'dotnet publish'
+    projects: '$(pathtoapiproject)/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/api'
+  displayName: 'dotnet publish api'
 
 # - task: Docker@2
 #   inputs:
@@ -88,7 +95,7 @@ steps:
   inputs:
     azureSubscription: 'Free Trial(d30e4b38-6958-43b6-ad79-a05f240c8380)'
     appType: 'webApp'
-    appName: 'NeonIcons'
-    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    appName: 'NeonIconsApi'
+    package: '$(Build.ArtifactStagingDirectory)/api/**/*.zip'
     deploymentMethod: 'auto'
-  displayName: 'publish to server'
+  displayName: 'publish api to server'
