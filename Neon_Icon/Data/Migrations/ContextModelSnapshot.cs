@@ -19,22 +19,6 @@ namespace Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Data.Entities.Genre", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnName("id");
-
-                    b.Property<int>("Test");
-
-                    b.Property<string>("Type")
-                        .HasColumnName("type")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genre");
-                });
-
             modelBuilder.Entity("Data.Entities.Locations", b =>
                 {
                     b.Property<int>("Id")
@@ -58,7 +42,7 @@ namespace Data.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("GenreId")
+                    b.Property<string>("Genre")
                         .HasColumnName("genre_id");
 
                     b.Property<int>("UserId")
@@ -68,8 +52,6 @@ namespace Data.Migrations
                         .HasColumnName("weather_id");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GenreId");
 
                     b.HasIndex("UserId");
 
@@ -110,7 +92,7 @@ namespace Data.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DefaultGenre")
+                    b.Property<string>("DefaultGenre")
                         .HasColumnName("default_genre");
 
                     b.Property<string>("Description")
@@ -123,18 +105,11 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DefaultGenre");
-
                     b.ToTable("Weather");
                 });
 
             modelBuilder.Entity("Data.Entities.Preferences", b =>
                 {
-                    b.HasOne("Data.Entities.Genre", "Genre")
-                        .WithMany("Preferences")
-                        .HasForeignKey("GenreId")
-                        .HasConstraintName("FK__Preferenc__genre__5535A963");
-
                     b.HasOne("Data.Entities.Users", "User")
                         .WithMany("Preferences")
                         .HasForeignKey("UserId")
@@ -152,14 +127,6 @@ namespace Data.Migrations
                         .WithMany("Users")
                         .HasForeignKey("LocationId")
                         .HasConstraintName("FK__Users__location___4BAC3F29");
-                });
-
-            modelBuilder.Entity("Data.Entities.Weather", b =>
-                {
-                    b.HasOne("Data.Entities.Genre", "DefaultGenreNavigation")
-                        .WithMany("Weather")
-                        .HasForeignKey("DefaultGenre")
-                        .HasConstraintName("FK__Weather__default__5070F446");
                 });
 #pragma warning restore 612, 618
         }

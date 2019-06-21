@@ -9,28 +9,7 @@ namespace Data
 {
     public static class Mapper
     {
-        public static DomainEntities.Genre Map(Entities.Genre g)
-        {
-            if (g == null) { return null; }
-
-            return new DomainEntities.Genre
-            {
-                id = g.Id,
-                type = g.Type
-            };
-        }
-
-        public static Entities.Genre Map(DomainEntities.Genre g)
-        {
-            if (g == null) { return null; }
-
-            return new Entities.Genre
-            {
-                Id = g.id,
-                Type = g.type
-            };
-        }
-
+        // A class which maps data and domain entities
         public static DomainEntities.Location Map(Entities.Locations l)
         {
             if (l == null) { return null; }
@@ -38,7 +17,7 @@ namespace Data
             return new DomainEntities.Location
             {
                 id = l.Id,
-                location = l.Location
+                zip = l.Location
             };
         }
 
@@ -49,7 +28,7 @@ namespace Data
             return new Entities.Locations
             {
                 Id = l.id,
-                Location = l.location
+                Location = l.zip
             };
         }
 
@@ -62,7 +41,7 @@ namespace Data
                 preference_id = p.Id,
                 user_id = p.UserId,
                 weather_id = p.WeatherId,
-                genre_id = p.GenreId
+                genre = p.Genre
             };
         }
 
@@ -75,7 +54,7 @@ namespace Data
                 Id = p.preference_id,
                 UserId = p.user_id,
                 WeatherId = p.weather_id,
-                GenreId = p.genre_id
+                Genre = p.genre
             };
         }
 
@@ -132,8 +111,6 @@ namespace Data
             };
         }
 
-        public static IEnumerable<DomainEntities.Genre> Map(IEnumerable<Entities.Genre> g) => g.Select(Map);
-        public static IEnumerable<Entities.Genre> Map(IEnumerable<DomainEntities.Genre> g) => g.Select(Map);
         public static IEnumerable<DomainEntities.Location> Map(IEnumerable<Entities.Locations> l) => l.Select(Map);
         public static IEnumerable<Entities.Locations> Map(IEnumerable<DomainEntities.Location> l) => l.Select(Map);
         public static IEnumerable<DomainEntities.Preference> Map(IEnumerable<Entities.Preferences> p) => p.Select(Map);

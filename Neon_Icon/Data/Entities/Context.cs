@@ -15,7 +15,6 @@ namespace Data.Entities
         {
         }
 
-        public virtual DbSet<Genre> Genre { get; set; }
         public virtual DbSet<Locations> Locations { get; set; }
         public virtual DbSet<Preferences> Preferences { get; set; }
         public virtual DbSet<Users> Users { get; set; }
@@ -25,24 +24,13 @@ namespace Data.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder.UseSqlServer(DbConnection.Connection);
+                optionsBuilder.UseSqlServer("Server=pizzaboxserver.database.windows.net;Database=NeonIconsDb;user id=pizzapizza;Password=Pizza123;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
-
-            modelBuilder.Entity<Genre>(entity =>
-            {
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.Type)
-                    .HasColumnName("type")
-                    .HasMaxLength(50);
-            });
 
             modelBuilder.Entity<Locations>(entity =>
             {
@@ -53,21 +41,17 @@ namespace Data.Entities
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Preferences>(entity =>
+            modelBuilder.Entity<Preferences>((Action<Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Preferences>>)((Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Preferences> entity) =>
             {
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.GenreId).HasColumnName("genre_id");
+                entity.Property((System.Linq.Expressions.Expression<Func<Preferences, string>>)(e => (string)e.Genre)).HasColumnName("genre_id");
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
 
                 entity.Property(e => e.WeatherId).HasColumnName("weather_id");
 
-                entity.HasOne(d => d.Genre)
-                    .WithMany(p => p.Preferences)
-                    .HasForeignKey(d => d.GenreId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Preferenc__genre__5535A963");
+               
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Preferences)
@@ -80,7 +64,7 @@ namespace Data.Entities
                     .HasForeignKey(d => d.WeatherId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Preferenc__weath__5441852A");
-            });
+            }));
 
             modelBuilder.Entity<Users>(entity =>
             {
@@ -116,11 +100,7 @@ namespace Data.Entities
                     .HasColumnName("type")
                     .HasMaxLength(50);
 
-                entity.HasOne(d => d.DefaultGenreNavigation)
-                    .WithMany(p => p.Weather)
-                    .HasForeignKey(d => d.DefaultGenre)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Weather__default__5070F446");
+                
             });
         }
     }

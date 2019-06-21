@@ -7,19 +7,17 @@ using Domain.Repositories;
 
 namespace Data.Repositories
 {
-    class PreferenceRepository : IPreferenceRepository
+    public class PreferenceRepository : IPreferenceRepository
     {
-        public void DeletePreference(Preference preference)
+        public virtual void DeletePreference(Preference preference)
         {
             DatabaseInstance.GetContext().Remove(Mapper.Map(preference));
         }
-
-        public IEnumerable<Preference> GetPreferences(int userid)
+        public virtual IEnumerable<Preference> GetPreferences(int userid)
         {
-            return Mapper.Map(DatabaseInstance.GetContext().Preferences.Where(x => x.UserId == userid).ToAsyncEnumerable().ToEnumerable());
+            return Mapper.Map(DatabaseInstance.GetContext().Preferences.Where(x => x.UserId == userid));
         }
-
-        public void SetPreference(Preference preference)
+        public virtual void SetPreference(Preference preference)
         {
             var check = DatabaseInstance.GetContext().Preferences.Where(x => x.UserId == preference.user_id && x.WeatherId == preference.weather_id).FirstOrDefault();
             if (check == null)
