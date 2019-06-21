@@ -39,7 +39,7 @@ namespace WebApi.Controllers
             Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
             Domain.DomainEntities.Weather rweather = wdb.GetWeather(weather);
             rweather.description = weather.description;
-            return Ok(weather);
+            return Ok(rweather);
         }
         [HttpGet]
         /// <summary>
