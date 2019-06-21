@@ -73,9 +73,6 @@ export class WeatherService {
     };
   }
 
-  
-  
-
   private log(message: string) {
     this.messageService.add(`WeatherService: ${message}`);
   }
