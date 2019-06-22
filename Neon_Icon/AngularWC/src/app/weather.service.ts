@@ -23,7 +23,7 @@ export class WeatherService {
   ) { }
 
   getWeather(zip:string): Observable<weather>
-  {
+  {    
     return this.http.get<weather>(this.weatherUrl+zip)
      .pipe(
        tap(_ => this.log('fetched weather')),

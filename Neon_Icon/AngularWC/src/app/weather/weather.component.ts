@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { weather } from '../weather';
 import { WeatherService } from '../weather.service';
-import {MatButtonModule } from '@angular/material';
 
 @Component({
   selector: 'app-weather',
@@ -17,16 +16,10 @@ export class WeatherComponent implements OnInit {
   imagesrc: string;
 
   ngOnInit() {
-    this.weather = new weather;
-    this.getWeather("76010");
   }
 
-  getWeather(zip:string): void {
+  getWeather(zip:string, container = HTMLDivElement): void {
     this.weatherService.getWeather(zip)
     .subscribe(weather => {this.weather = weather; this.imagesrc = this.weatherService.getImage(weather.type);});
-  }
-  
-  getImage(type: string): string {
-    return "assets/cloudy.png";
   }
 }
