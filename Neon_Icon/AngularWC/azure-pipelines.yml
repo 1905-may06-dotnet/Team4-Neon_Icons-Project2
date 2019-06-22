@@ -4,8 +4,9 @@ trigger:
     - master
   paths:
     include:
-      Neon_Icons/AngularWc
+    - Neon_Icons/AngularWc
 
+steps:
 - script: npm ci
   displayName: Install NPM dependencies
 
