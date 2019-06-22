@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SpotifyComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
-  
+
   ngOnInit() {
   }
 

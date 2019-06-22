@@ -14,7 +14,7 @@ export class SpotifyCallbackComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
-        
+
       });
   }
 

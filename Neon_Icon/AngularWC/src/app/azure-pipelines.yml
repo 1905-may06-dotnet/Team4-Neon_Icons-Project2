@@ -1,0 +1,22 @@
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+      Neon_Icons/AngularWc
+
+- script: npm ci
+  displayName: Install NPM dependencies
+
+- script: npm run build:ci
+  displayName: Angular build production
+
+- script: npm run lint
+  displayName: Angular lint
+
+- script: npm run test:ci
+  displayName: Angular test
+
+- script: npm run e2e
+  displayName: Angular end-to-end test
