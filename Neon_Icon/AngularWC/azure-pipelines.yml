@@ -7,9 +7,7 @@ trigger:
     - Neon_Icons/AngularWc
 
 steps:
-- script: cd Neon_Icon/AngularWc
-
-- script: npm ci
+- script: npm ci "Neon_Icons/AngularWc"
   displayName: Install NPM dependencies
 
 - script: npm run build:ci
