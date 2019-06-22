@@ -7,11 +7,6 @@ trigger:
     - Neon_Icons/AngularWc
 
 steps:
-- task: UseNode@1
-  inputs:
-    version: '10.x'
-  displayName: Instal Node
-
 - script: npm ci
   displayName: Install NPM dependencies
 
