@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { weather } from './weather';
-import { MessageService } from './message.service'
+import { Weather } from './weather';
+import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
@@ -15,23 +15,44 @@ const httpOptions = {
 })
 export class WeatherService {
 
-  private weatherUrl = 'https://neoniconsapi.azurewebsites.net/api/values/getweather/76010';
+  private weatherUrl = 'https://neoniconsapi.azurewebsites.net/api/values/getweather/';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { }
 
-  getWeather(): Observable<weather>
-  {
-    const url = this.weatherUrl;
-    return this.http.get<weather>(this.weatherUrl)
+  getWeather(zip: string): Observable<Weather> {
+    return this.http.get<Weather>(this.weatherUrl + zip)
      .pipe(
        tap(_ => this.log('fetched weather')),
-       catchError(this.handleError<weather>('getWeather'))
+       catchError(this.handleError<Weather>('getWeather'))
      );
   }
 
+  getImage(type: string): string {
+    if (type === 'Clear') {
+      return './assets/imgs/sunny.png';
+    } else if (type === 'Sand'
+    || type === 'Ash'
+    || type === 'Dust'
+    || type === 'Haze') {
+        return './assets/imgs/partly-sunny.png';
+    } else if (type === 'Drizzle'
+    || type === 'Rain'
+    || type === 'Mist'
+    || type === 'Snow') {
+      return './assets/imgs/rainy.png';
+    } else if (type === 'Clouds'
+    || type === 'Smoke'
+    || type === 'Fog') {
+      return './assets/imgs/cloudy.png';
+    } else if (type === 'Thunderstorm'
+    || type === 'Squall'
+    || type === 'Tornado') {
+      return './assets/imgs/thunderstorm.png';
+    }
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -46,7 +67,6 @@ export class WeatherService {
       return of(result as T);
     };
   }
-  
 
   private log(message: string) {
     this.messageService.add(`WeatherService: ${message}`);
