@@ -8,6 +8,7 @@ import { SpotifyComponent } from './spotify/spotify.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WeatherComponent } from './weather/weather.component';
 import { MessagesComponent } from './messages/messages.component';
+import { SpotifyCallbackComponent } from './spotify-callback/spotify-callback.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,14 @@ import { MessagesComponent } from './messages/messages.component';
     SpotifyComponent,
     DashboardComponent,
     WeatherComponent,
-    MessagesComponent
+    MessagesComponent,
+    SpotifyComponent,
+    SpotifyCallbackComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
