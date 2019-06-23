@@ -1,0 +1,12 @@
+#container {
+    width: 50%;
+    height: 200px;
+    overflow: hidden;
+}
+  
+#container, img {
+    display: block;
+    max-width: 100%;
+    max-height: 650px;
+    margin: 0 auto;
+}

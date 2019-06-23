@@ -1,6 +1,7 @@
+<div id="container">
 <form class="example-form">
         <mat-form-field class="example-full-width">
-                <input matInput name="zip-code" autocomplete="off" placeholder="Enter ZIP Code" type="text" pattern="/^\d{5}$/" maxlength="5" required #zipinput>
+                <input matInput name="zip-code" placeholder="Enter ZIP Code" type="text" pattern="/^\d{5}$/" maxlength="5" required #zipinput>
         </mat-form-field>
 </form>
 
@@ -9,11 +10,13 @@
 
 <div *ngIf="Weather" ngDefaultControl [(ngModel)]="Weather">
     <ul>
-        <li>{{Weather.description}}</li><br>
 
         <li>{{Weather.type}}</li><br>
+
+        <li>{{Weather.description}}</li><br>
             
         <li>{{Weather.default_genre}}</li><br> 
     </ul>
     <img src={{imagesrc}} height="20%" width="20%" /> 
+</div>
 </div>
