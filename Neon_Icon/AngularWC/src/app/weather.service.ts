@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Weather } from './weather';
+import { Weather } from './Weather';
 import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -25,7 +25,7 @@ export class WeatherService {
   getWeather(zip: string): Observable<Weather> {
     return this.http.get<Weather>(this.weatherUrl + zip)
      .pipe(
-       tap(_ => this.log('fetched weather')),
+       tap(_ => this.log('fetched Weather')),
        catchError(this.handleError<Weather>('getWeather'))
      );
   }
