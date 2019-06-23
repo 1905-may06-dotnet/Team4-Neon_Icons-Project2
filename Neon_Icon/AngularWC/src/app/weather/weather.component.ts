@@ -14,7 +14,6 @@ export class WeatherComponent implements OnInit {
   Weather: Weather;
   zip: string;
   imagesrc: string;
-  gotWeather: Weather;
 
   ngOnInit() {
   }
