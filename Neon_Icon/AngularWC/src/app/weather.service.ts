@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class WeatherService {
 
-  private weatherUrl = 'https://neoniconsapi.azurewebsites.net/api/values/getweather/';
+  private weatherUrl = 'https://localhost:44390/api/values/getweather/';
 
   constructor(
     private http: HttpClient,
