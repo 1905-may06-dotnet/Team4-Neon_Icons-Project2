@@ -2,8 +2,6 @@ trigger:
   branches:
     include:
       - master
-    exclude:
-      - Development
   paths:
     include:
     - Neon_Icon/AngularWC
