@@ -11,7 +11,7 @@ export class WeatherComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) { }
 
-  weather: Weather;
+  Weather: Weather;
   zip: string;
   imagesrc: string;
   gotWeather: Weather;
@@ -21,10 +21,10 @@ export class WeatherComponent implements OnInit {
 
   getWeather(zip: string): void {
     this.weatherService.getWeather(zip)
-    .subscribe(Weather => {this.weather = Weather; this.imagesrc = this.weatherService.getImage(Weather.type); });
+    .subscribe(Weather => {this.Weather = Weather; this.imagesrc = this.weatherService.getImage(Weather.type); });
   }
 
   onSelect(Weather: Weather): void {
-    this.weather = Weather;
+    this.Weather = Weather;
   }
 }
