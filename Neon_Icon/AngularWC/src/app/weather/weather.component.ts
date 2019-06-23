@@ -1,25 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { weather } from '../weather';
-import { WeatherService } from '../weather.service';
+import { Weather } from '../Weather';
+import { WeatherService } from '../Weather.service';
 
 @Component({
-  selector: 'app-weather',
-  templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.css']
+  selector: 'app-Weather',
+  templateUrl: './Weather.component.html',
+  styleUrls: ['./Weather.component.css']
 })
 export class WeatherComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) { }
 
-  weather: weather;
+  Weather: Weather;
+  zip: string;
+  imagesrc: string;
+  gotWeather: Weather;
 
   ngOnInit() {
-    this.weather = new weather;
-    this.getWeather();
+  }
+  
+  getWeather(zip:string): void {
+    this.weatherService.getWeather(zip)
+    .subscribe(Weather => {this.Weather = Weather; this.imagesrc = this.weatherService.getImage(Weather.type); });
   }
 
-  getWeather(): void {
-    this.weatherService.getWeather()
-    .subscribe(weather => this.weather = weather);
+  onSelect(Weather: Weather): void {
+    this.Weather = Weather;
   }
 }

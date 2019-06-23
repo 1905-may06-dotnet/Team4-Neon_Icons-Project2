@@ -32,12 +32,10 @@ namespace WebApi
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins("http://127.0.0.1:5500")
+                    builder.WithOrigins("http://127.0.0.1:5500", "localhost:4200")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowAnyOrigin();
-
-
                 });
                 options.AddPolicy("Mypolicy", builder =>
                 {
