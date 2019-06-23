@@ -13,6 +13,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class WeatherService {
 
   private weatherUrl = 'https://localhost:44390/api/values/getweather/';

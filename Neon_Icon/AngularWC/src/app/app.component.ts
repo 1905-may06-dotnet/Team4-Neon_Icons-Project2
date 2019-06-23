@@ -12,15 +12,10 @@ import { filter } from 'rxjs/internal/operators/filter';
 export class AppComponent {
 
   constructor(
-    //private  infoSvc:  InfoService,
-    //private  tokenSvc:  TokenService,
-    //private  authService:  AuthService,
     private  Router:  Router
   ) {}
  
   ngOnInit():  void {
-    // this.authService.authorizedStream.pipe().subscribe(() => {
-    //   this.router.navigate(['user']);	
     };
   }
 
