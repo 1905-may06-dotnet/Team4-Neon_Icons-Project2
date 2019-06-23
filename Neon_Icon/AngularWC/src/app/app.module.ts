@@ -17,6 +17,8 @@ import {MatInputModule} from '@angular/material/input';
 
 import { SpotifyService } from './spotify.service';
 import { TokenService, AuthService } from 'spotify-auth';
+import { UserComponent } from './user/user.component';
+import { PreferencesComponent } from './preferences/preferences.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { TokenService, AuthService } from 'spotify-auth';
     WeatherComponent,
     MessagesComponent,
     SpotifyComponent,
-    SpotifyCallbackComponent
+    SpotifyCallbackComponent,
+    UserComponent,
+    PreferencesComponent
   ],
   imports: [
     BrowserModule,
