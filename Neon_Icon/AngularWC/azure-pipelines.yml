@@ -1,22 +1,23 @@
 trigger:
   branches:
     include:
-    - master
+      - master
   paths:
     include:
-      Neon_Icons/AngularWc
+    - Neon_Icon/AngularWC
 
-- script: npm ci
+steps:
+- script: npm ci --prefix Neon_Icon/AngularWC
   displayName: Install NPM dependencies
 
-- script: npm run build:ci
+- script: npm run build:ci --prefix Neon_Icon/AngularWC
   displayName: Angular build production
 
-- script: npm run lint
+- script: npm run lint --prefix Neon_Icon/AngularWC
   displayName: Angular lint
 
-- script: npm run test:ci
+- script: npm run test:ci --prefix Neon_Icon/AngularWC
   displayName: Angular test
 
-- script: npm run e2e
+- script: npm run e2e --prefix Neon_Icon/AngularWC
   displayName: Angular end-to-end test
