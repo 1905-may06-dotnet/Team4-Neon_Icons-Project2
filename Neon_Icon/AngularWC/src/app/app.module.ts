@@ -41,11 +41,11 @@ import { PreferencesComponent } from './preferences/preferences.component';
     MatButtonModule,
     MatInputModule
   ],
-  providers: [ 
+  providers: [
     InfoService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: SpotifyService, //Force interception.
+      useClass: SpotifyService, // Force interception.
       multi: true
     },
     TokenService,

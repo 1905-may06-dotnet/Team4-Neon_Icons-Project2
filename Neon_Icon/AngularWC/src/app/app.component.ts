@@ -9,19 +9,20 @@ import { filter } from 'rxjs/internal/operators/filter';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-//TEST
+// TEST
 export class AppComponent {
 
   constructor(
-    private  infoSvc:  InfoService,
-    private  tokenSvc:  TokenService,
-    private  authService:  AuthService,
-    private  router:  Router
+    private  infoSvc: InfoService,
+    private  tokenSvc: TokenService,
+    private  authService: AuthService,
+    private  router: Router
   ) {}
- 
-  ngOnInit():  void {
-    this.authService.authorizedStream.pipe(filter(x=> x)).subscribe(() => {
-      this.router.navigate(['user']);	
+  title = 'Neon Icons';
+
+  ngOnInit(): void {
+    this.authService.authorizedStream.pipe(filter(x => x)).subscribe(() => {
+      this.router.navigate(['user']);
     });
   }
 
@@ -29,5 +30,4 @@ export class AppComponent {
     this.tokenSvc.clearToken();
     this.router.navigate(['login']);
   }
-  title = 'Neon Icons';
 }

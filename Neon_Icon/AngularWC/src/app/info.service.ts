@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 @Injectable()
 export class InfoService {
 
-  private apiUserUrl: string = 'https://api.spotify.com/v1/me';
-  private apiAlbumsUrl: string = 'https://api.spotify.com/v1/me/albums';
+  private apiUserUrl = 'https://api.spotify.com/v1/me';
+  private apiAlbumsUrl = 'https://api.spotify.com/v1/me/albums';
 
   private user: {} = {};
   private user$: BehaviorSubject<{}>;
@@ -26,16 +26,16 @@ export class InfoService {
   public fetchUserInfo(): Observable<{}> {
     return this.http.get(this.apiUserUrl).pipe(
       tap((user: {}) => {
-        this.user$.next(this.user); 
+        this.user$.next(this.user);
       }),
       catchError(this.handleError('getSelf'))
     );
   }
 
-  public fetchUserAlbums(): Observable<{}>{
+  public fetchUserAlbums(): Observable<{}> {
     return this.http.get(this.apiAlbumsUrl).pipe(
       tap((user: {}) => {
-        this.user$.next(this.user); 
+        this.user$.next(this.user);
       }),
       catchError(this.handleError('getSelfAlbums'))
     );

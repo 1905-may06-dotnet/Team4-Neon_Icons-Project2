@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Weather } from './Weather';
 import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
-//test commit
+// test commit
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

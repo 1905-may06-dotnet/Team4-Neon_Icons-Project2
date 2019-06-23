@@ -7,13 +7,18 @@ import { TokenService, SpotifyAuthInterceptor } from 'spotify-auth';
 @Injectable({
   providedIn: 'root'
 })
-export class SpotifyService extends SpotifyAuthInterceptor{
-  
+export class SpotifyService extends SpotifyAuthInterceptor {
+
   genre: string;
   authToken =
-  'BQDQTYqhiTTGdaFuGubZOmwgENTuNALhX1WeQJq6Mt5aRIMe9IzG2l6-oBeY-Ecg0lf7GITeDbypnONyWhCGXxXk3zCTMuvlqMk7MGnPJow2c19qpXsHhbyXyLVPejin10sqcZefVtqFB0q-0t4ierWUsHri-CK9lZK0LfJ7uw';
+  'BQDQTYqhiTTGdaFuGubZOmwgENTuNA\
+  LhX1WeQJq6Mt5aRIMe9IzG2l6-oBeY-E\
+  cg0lf7GITeDbypnONyWhCGXxXk3zCTMuv\
+  lqMk7MGnPJow2c19qpXsHhbyXyLVPejin1\
+  0sqcZefVtqFB0q-0t4ierWUsHri-CK9lZK0\
+  LfJ7uw';
 
-  
+
   doOnError(err: any): void {}
   constructor(tokenSvc: TokenService) {
     super(tokenSvc);
