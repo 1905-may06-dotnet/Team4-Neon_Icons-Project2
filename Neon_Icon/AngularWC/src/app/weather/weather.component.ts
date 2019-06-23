@@ -23,8 +23,4 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getWeather(zip)
     .subscribe(Weather => {this.Weather = Weather; this.imagesrc = this.weatherService.getImage(Weather.type); });
   }
-
-  onSelect(Weather: Weather): void {
-    this.Weather = Weather;
-  }
 }
