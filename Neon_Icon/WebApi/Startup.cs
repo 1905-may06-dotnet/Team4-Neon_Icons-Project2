@@ -36,8 +36,6 @@ namespace WebApi
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowAnyOrigin();
-
-
                 });
                 options.AddPolicy("Mypolicy", builder =>
                 {
