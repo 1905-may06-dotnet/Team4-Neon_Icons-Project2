@@ -1,10 +1,19 @@
+<form class="example-form">
+        <mat-form-field class="example-full-width">
+                <input matInput name="zip-code" autocomplete="off" placeholder="Enter ZIP Code" type="text" pattern="/^\d{5}$/" maxlength="5" required #zipinput>
+        </mat-form-field>
+</form>
 
-<input name="zip-code" value="76010" type="text" #zipinput>
-<button (click)="getWeather(zipinput.value)">Submit</button>
-<br>
+<button mat-button (click)="getWeather(zipinput.value)">Submit</button>
 
-<span class="badge">{{weather.type}}</span><br>
-<span class="badge">{{weather.description}}</span><br>
-<span class="badge">{{weather.default_genre}}</span><br>
 
-<img src={{imagesrc}} height="20%" width="20%" /> 
+<div *ngIf="Weather" ngDefaultControl [(ngModel)]="Weather">
+    <ul>
+        <li>{{Weather.description}}</li><br>
+
+        <li>{{Weather.type}}</li><br>
+            
+        <li>{{Weather.default_genre}}</li><br> 
+    </ul>
+    <img src={{imagesrc}} height="20%" width="20%" /> 
+</div>
