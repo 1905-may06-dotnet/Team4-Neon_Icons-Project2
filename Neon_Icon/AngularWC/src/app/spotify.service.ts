@@ -1,32 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/do';
-import { TokenService, SpotifyAuthInterceptor } from 'spotify-auth';
 
+import { AuthConfig } from "./authconfig";
+import { Token } from "./access-token";
 
 @Injectable({
   providedIn: 'root'
 })
-export class SpotifyService extends SpotifyAuthInterceptor {
+export class SpotifyService {
+  accessToken: Token;
+  
+  constructor() { }
 
-  genre: string;
-  authToken =
-  'BQDQTYqhiTTGdaFuGubZOmwgENTuNA\
-  LhX1WeQJq6Mt5aRIMe9IzG2l6-oBeY-E\
-  cg0lf7GITeDbypnONyWhCGXxXk3zCTMuv\
-  lqMk7MGnPJow2c19qpXsHhbyXyLVPejin1\
-  0sqcZefVtqFB0q-0t4ierWUsHri-CK9lZK0\
-  LfJ7uw';
-
-
-  doOnError(err: any): void {}
-  constructor(tokenSvc: TokenService) {
-    super(tokenSvc);
+  login() : void {
+    const ac: AuthConfig = new AuthConfig();
+    
+    let params = new URLSearchParams();
+    for(let key in ac){
+        params.set(key, ac[key]) 
+    }
+    
+    window.location.href="https://accounts.spotify.com/authorize?" + params.toString();
   }
 
-
-
-  public login() {
-
+  logout() {
+    this.accessToken = null;
   }
 }
