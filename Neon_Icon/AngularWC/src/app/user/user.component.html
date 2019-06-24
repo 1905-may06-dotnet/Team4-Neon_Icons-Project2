@@ -1,7 +1,43 @@
-<button mat-button (click)="Login(zipInput)">Login</button>
-<button mat-button (click)="Register(zipInput)">Register</button>
+<br>
+<button class="button" 
+mat-raised-button
+color="accent" 
+(click)="Login(zipInput)">Login</button>
+<br>
+<br>
+<button 
+class="button" 
+mat-raised-button
+color="accent" 
+(click)="Register(zipInput)">Register</button>
 
-<input mattInput placeholder="Enter username" type="text" required #usernameInput>
-<input mattInput placeholder="Enter password" type="text" required #passwordInput>
-<input mattInput placeholder="Enter zip" type="text" #zipInput hidden>
-<button class="button" (click)="Submit(usernameInput.value, passwordInput.value, zipInput.value)">Submit</button>
+<br>
+<br>
+
+<form class="form">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter username" type="text" required #usernameInput><br>
+    </mat-form-field><br>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter password" type="password" required #passwordInput><br>
+    </mat-form-field><br>
+
+
+    <mat-form-field *ngIf="!isLoginOrRegister" class="example-full-width">
+        <input matInput placeholder="Enter zip" type="text" required #zipInput><br>
+    </mat-form-field>
+
+</form>
+
+
+<br>
+<br>
+<br>
+
+<button 
+class="button" 
+mat-raised-button
+color="accent" 
+(click)="Submit(usernameInput.value, passwordInput.value, zipInput.value)">Submit</button>

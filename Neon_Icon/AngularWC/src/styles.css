@@ -5,8 +5,35 @@
 body {
     background-color: #1f2633;
     color: #eee;
-  }
+    font-size: 0.5rem;
+}
 
-  * {
-    font-family: Copperplate fantasy;
-  }
+div{
+  text-align: center;
+  font-family: Arial;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.5rem;
+  font-family: Impact;
+  font-size: 5rem;
+}
+
+button {
+  width: 25rem;
+}
+
+form {
+  font-size: 1.0rem;
+}
+
+p {
+   font-size: 1.5rem;
+}
+
+h1 {
+  font-family: Impact;
+  text-shadow: 4px 4px #ff0000;
+}

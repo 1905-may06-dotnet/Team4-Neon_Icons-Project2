@@ -1,5 +1,5 @@
 <div id="container">
-                <br>
+                
 <form class="form">
         <mat-form-field class="example-full-width">
                 <input 
@@ -13,24 +13,23 @@
                 #zipinput>
         </mat-form-field>
 </form>
-<br>
 
 <button class="button" 
 mat-raised-button
 color="accent"
 (click)="getWeather(zipinput.value)">Submit</button>
-<br>
-<br>
+
 
 <div id="display" *ngIf="Weather" ngDefaultControl [(ngModel)]="Weather">
 
         <p>{{Weather.description | titlecase}}</p><br>
 
     <img src={{imagesrc}}/> 
-    <br>
+
 
     
     
 </div>
 </div>
+<br>
 <app-spotify>/</app-spotify>

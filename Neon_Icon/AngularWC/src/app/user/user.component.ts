@@ -12,9 +12,6 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   User: User;
-  //usernameInput: string;
-  //passwordInput: string;
-  //zipInput: string;
   isLoginOrRegister: boolean;
 
   ngOnInit() {
@@ -22,12 +19,10 @@ export class UserComponent implements OnInit {
   }
 
   Login(zip: HTMLInputElement) {
-      zip.hidden=true;
       this.isLoginOrRegister = true;
   }
 
   Register(zip : HTMLInputElement) {
-      zip.hidden = false;
       this.isLoginOrRegister = false;
   }
   
@@ -41,9 +36,14 @@ export class UserComponent implements OnInit {
       .subscribe(user => this.User = user)
     }
     else{
+      if (zip.length != 5) {
+        alert("Please enter a valid ZIP Code")
+      }
+      else {
       this.User.zip = zip;
       this.userService.Register(this.User)
         .subscribe(user => this.User = user)
+      }
     }
     
 
