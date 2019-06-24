@@ -10,16 +10,14 @@ export class SpotifyComponent implements OnInit {
 
   constructor(private spotifyService: SpotifyService) { }
 
-  ngOnInit() {
-    this.spotifyService.getToken();
-  }
+  ngOnInit() {}
 
   login() {
     this.spotifyService.login()
   }
 
   getToken() {
-    this.spotifyService.getToken();
+    return this.spotifyService.getToken();
   }
 
 }
