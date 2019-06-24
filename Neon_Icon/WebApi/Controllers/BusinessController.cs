@@ -74,10 +74,8 @@ namespace WebApi.Controllers
                 db.Create(newUser);
                 return Ok();
             }
-            else
-            {
-                return Unauthorized();
-            }
+            
+            return Unauthorized();
         }
         [HttpPut]
         /// <summary>
