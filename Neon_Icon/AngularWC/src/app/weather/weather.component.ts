@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Weather } from '../Weather';
 import { WeatherService } from '../Weather.service';
+import { SpotifyService } from '../spotify.service';
+
 
 @Component({
   selector: 'app-weather',
@@ -9,7 +11,7 @@ import { WeatherService } from '../Weather.service';
 })
 export class WeatherComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService, private spotifyService: SpotifyService) { }
 
   Weather: Weather;
   zip: string;

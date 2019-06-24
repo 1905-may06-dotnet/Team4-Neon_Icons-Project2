@@ -1,0 +1,10 @@
+<div *ngIf="!getToken()">
+<button class="button" 
+mat-raised-button
+color="accent"
+(click)="login()">Login With Spotify</button>
+</div>
+
+<div *ngIf="getToken()">
+    <p>TOKEN ACQUIRED</p>
+</div>

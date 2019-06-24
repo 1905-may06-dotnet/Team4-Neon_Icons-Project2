@@ -11,6 +11,11 @@ export class SpotifyService {
   
   constructor() { }
 
+  getToken() : Token {
+    return this.accessToken;
+  }
+
+
   login() : void {
     const ac: AuthConfig = new AuthConfig();
     

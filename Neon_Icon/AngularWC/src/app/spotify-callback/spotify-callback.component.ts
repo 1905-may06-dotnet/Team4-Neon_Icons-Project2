@@ -10,7 +10,7 @@ import { Token } from '../access-token';
 })
 export class SpotifyCallbackComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private spotifyService: SpotifyService) { }
+  constructor(private route: ActivatedRoute, private spotifyService: SpotifyService, private router: Router) { }
 
   ngOnInit() {
     this.route.fragment.subscribe(fragment => {
@@ -19,22 +19,9 @@ export class SpotifyCallbackComponent implements OnInit {
       this.spotifyService.accessToken = new Token();
       this.spotifyService.accessToken.token = params.get('access_token');
       this.spotifyService.accessToken.tokenType = params.get('token_type');
+      //console.log(this.spotifyService.getToken());
 
-<<<<<<< HEAD
-      window.location.href="weather";
+      this.router.navigate(["weather"]);
     });
-=======
-  public login(): void {
-    const scopes = new ScopesBuilder()/* .withScopes(ScopesBuilder.LIBRARY) */.build();
-    const ac: AuthConfig = {
-      client_id: '208a44d2f0e34e378facf5b39ddc6568',  // WebPortal App Id. Shoud be config
-      response_type: 'token',
-      redirect_uri: 'http://localhost:4200/spotifycallback',  // My URL
-      state: '',
-      show_dialog: true,
-      scope: scopes
-    };
-    this.authService.configure(ac).authorize();
->>>>>>> 7922269a4bdd8326de3e132640fd4f7693135055
   }
 }
