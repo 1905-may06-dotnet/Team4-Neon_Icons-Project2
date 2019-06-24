@@ -23,9 +23,9 @@ export class SpotifyCallbackComponent implements OnInit {
   public login(): void {
     const scopes = new ScopesBuilder()/* .withScopes(ScopesBuilder.LIBRARY) */.build();
     const ac: AuthConfig = {
-      client_id: '3af5f43840144db2a5ef883b56c5fb7e',  // WebPortal App Id. Shoud be config
+      client_id: '208a44d2f0e34e378facf5b39ddc6568',  // WebPortal App Id. Shoud be config
       response_type: 'token',
-      redirect_uri: 'http://7jpsan.github.io/spotify-auth-demo/authorized',  // My URL
+      redirect_uri: 'http://localhost:4200/spotifycallback',  // My URL
       state: '',
       show_dialog: true,
       scope: scopes

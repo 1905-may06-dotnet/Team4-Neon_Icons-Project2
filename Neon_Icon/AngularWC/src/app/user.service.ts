@@ -17,15 +17,15 @@ const httpOptions = {
 })
 export class UserService {
 
-  private userUrl = 'put user url here' //TODO fix
-
+  private userUrl = 'http://neoniconsapi.azurewebsites.net/api/business' //TODO fix
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { }
 
   Login(user: User) {
-    return this.http.post<User>(this.userUrl, user)
+    let url = this.userUrl;
+    return this.http.post<User>(url, user)
       .pipe(
         tap(_ => this.log('Login User')),
         catchError(this.handleError<User>('Login'))
@@ -33,7 +33,9 @@ export class UserService {
   }
 
   Register(user: User) {
-    return this.http.post<User>(this.userUrl, user)
+    let url = this.userUrl + "/register";
+
+    return this.http.post<User>(url, user)
       .pipe(
         tap(_ => this.log('Register User')),
         catchError(this.handleError<User>('Register'))
