@@ -26,7 +26,6 @@
     "http-server": "^0.11.1",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.2",
-    "spotify-auth": "^2.0.6",
     "tslib": "^1.9.0",
     "webpack": "^4.35.0",
     "zone.js": "~0.9.1"

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { SpotifyService } from '../spotify.service';
 
 @Component({
   selector: 'app-spotify',
@@ -9,11 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SpotifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit() {
+    this.spotifyService.login();
   }
-
 }
 
 

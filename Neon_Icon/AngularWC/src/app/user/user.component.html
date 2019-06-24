@@ -1,3 +1,7 @@
-<p>
-  user works!
-</p>
+<button mat-button (click)="Login(zipInput)">Login</button>
+<button mat-button (click)="Register(zipInput)">Register</button>
+
+<input mattInput placeholder="Enter username" type="text" required #usernameInput>
+<input mattInput placeholder="Enter password" type="text" required #passwordInput>
+<input mattInput placeholder="Enter zip" type="text" #zipInput hidden>
+<button class="button" (click)="Submit(usernameInput.value, passwordInput.value, zipInput.value)">Submit</button>

@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 import { Weather } from './Weather';
 import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
-//test commit
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,7 +15,7 @@ const httpOptions = {
 
 export class WeatherService {
 
-  private weatherUrl = 'http://neonicons.azurewebsites.net/api/values/getweather/';
+  private weatherUrl = 'https://neoniconsapi.azurewebsites.net/api/values/getweather/';
 
   constructor(
     private http: HttpClient,
