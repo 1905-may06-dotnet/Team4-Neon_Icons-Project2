@@ -24,7 +24,6 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         ///<summary>
         ///Check user for authenticity
         ///</summary>

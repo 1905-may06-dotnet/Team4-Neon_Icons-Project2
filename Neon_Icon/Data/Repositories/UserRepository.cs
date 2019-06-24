@@ -25,7 +25,7 @@ namespace Data.Repositories
         }
         public virtual void UpdateLocation (User user)
         {
-            DatabaseInstance.GetContext().Users.Update(Mapper.Map(user));
+            DatabaseInstance.GetContext().Users.Find(user.id).Location=user.location;
             DatabaseInstance.GetContext().SaveChanges();
         }
         public virtual void Delete (User user)
