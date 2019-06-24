@@ -13,6 +13,7 @@ namespace Data.Repositories
         public virtual void Create(User user)
         {
             DatabaseInstance.GetContext().Add(Mapper.Map(user));
+            DatabaseInstance.GetContext().SaveChanges();
         }
         public virtual User Find(int userId)
         {
@@ -25,10 +26,12 @@ namespace Data.Repositories
         public virtual void UpdateLocation (User user)
         {
             DatabaseInstance.GetContext().Locations.Update(Mapper.Map(user.location));
+            DatabaseInstance.GetContext().SaveChanges();
         }
         public virtual void Delete (User user)
         {
             DatabaseInstance.GetContext().Remove(Mapper.Map(user));
+            DatabaseInstance.GetContext().SaveChanges();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Data.Repositories
         public virtual void CreateWeather(Domain.DomainEntities.Weather weather)
         {
             DatabaseInstance.GetContext().Add(Mapper.Map(weather));
+            DatabaseInstance.GetContext().SaveChanges();
         }
         public virtual IEnumerable<Domain.DomainEntities.Weather> GetWeather()
         {
@@ -29,6 +30,7 @@ namespace Data.Repositories
         public virtual void DeleteWeather(Domain.DomainEntities.Weather weather)
         {
             DatabaseInstance.GetContext().Remove(Mapper.Map(weather));
+            DatabaseInstance.GetContext().SaveChanges();
         }
     }
 }
