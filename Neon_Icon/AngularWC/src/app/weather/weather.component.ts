@@ -14,7 +14,6 @@ export class WeatherComponent implements OnInit {
   Weather: Weather;
   zip: string;
   imagesrc: string;
-  gotWeather: Weather;
 
   ngOnInit() {
   }
@@ -22,9 +21,5 @@ export class WeatherComponent implements OnInit {
   getWeather(zip: string): void {
     this.weatherService.getWeather(zip)
     .subscribe(Weather => {this.Weather = Weather; this.imagesrc = this.weatherService.getImage(Weather.type); });
-  }
-
-  onSelect(Weather: Weather): void {
-    this.Weather = Weather;
   }
 }
