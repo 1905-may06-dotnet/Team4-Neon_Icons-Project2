@@ -61,11 +61,8 @@ namespace WebApi.Controllers
 
             newUser.username = client.username;
             newUser.password = client.password;
-
             //Use this location to retrieve the forecast
-            Location newLocation = new Location();
-            newLocation.zip = client.location;
-            newUser.location = newLocation;
+            newUser.location = client.location; ;
 
             var existingUser = db.Find(client.username);
 
@@ -88,7 +85,7 @@ namespace WebApi.Controllers
         public IActionResult UpdateLocation(Models.User client)
         {
             User user = db.Find(client.username);
-            user.location.zip = client.location;
+            user.location = client.location;
             if (user != null)
             {
                 db.UpdateLocation(user);

@@ -9,7 +9,6 @@ namespace Domain.DomainEntities
         public int id { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-
-        public Location location { get; set; }
+        public string location { get; set; }
     }
 }
