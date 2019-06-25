@@ -10,7 +10,7 @@ import { SpotifyService } from '../spotify.service';
 })
 export class WeatherComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService, private spotifyService: SpotifyService) { }
+  constructor(public weatherService: WeatherService, private spotifyService: SpotifyService) { }
 
   ngOnInit() {
   }
