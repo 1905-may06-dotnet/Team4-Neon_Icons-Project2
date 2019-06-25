@@ -28,7 +28,7 @@ steps:
     organization: 'neoniconsproject2'
     scannerMode: 'CLI'
     configMode: 'manual'
-    projectKey: 'neoniconsproject2'
+    cliProjectKey: 'neoniconsproject2'
     projectName: 'Neon Icons'
     extraProperties: |
       sonar.typescript.lcov.reportPaths=coverage/angular-cards/lcov.info
