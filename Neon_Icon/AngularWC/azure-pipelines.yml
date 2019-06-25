@@ -19,5 +19,34 @@ steps:
 - script: npm run test:ci --prefix Neon_Icon/AngularWC
   displayName: Angular test
 
-- script: npm run e2e --prefix Neon_Icon/AngularWC
-  displayName: Angular end-to-end test
+# - script: npm run e2e --prefix Neon_Icon/AngularWC
+#   displayName: Angular end-to-end test
+
+# - task: SonarCloudPrepare@1
+#   inputs:
+#     SonarCloud: 'NeonIcons'
+#     organization: 'neoniconsproject2'
+#     scannerMode: 'CLI'
+#     configMode: 'manual'
+#     cliProjectKey: 'neoniconsproject2'
+#     projectName: 'Neon Icons'
+#     extraProperties: |
+#       sonar.typescript.lcov.reportPaths=coverage/angular-cards/lcov.info
+#   displayName: 'Sonar Prepare Analysis'
+
+# - task: SonarCloudAnalyze@1
+#   displayName: Run SonarCloud analysis
+
+# - task: SonarCloudPublish@1
+#   inputs:
+#     pollingTimeoutSec: '300'
+#   displayName: Publish SonarCloud quality gate result
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Pay-As-You-Go(d30e4b38-6958-43b6-ad79-a05f240c8380)'
+    appType: 'webApp'
+    WebAppName: 'NeonIcons'
+    package: '$(System.DefaultWorkingDirectory)/Neon_Icon/AngularWC/dist/AngularWC'
+  displayName: Deploy to Azure App Service
