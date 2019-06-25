@@ -9,61 +9,14 @@
   <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 </head>
 <body>
-  <!-- <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script>
-//  window.onSpotifyWebPlaybackSDKReady = () => {
-//     console.log('ready');
-//   var player = new Spotify.Player({
-//   name: 'Carly Rae Jepsen Player',
-//   getOAuthToken: callback => {
-//     // Run code to get a fresh access token
-
-//     callback("BQCsf0norXpa3PBC-h8yI6nt3H61ASL9LfovfVMU6mXI0BuIXMu1cMT_6ThmhKNGJwUE91sEKUNrsnL8IBD_d7etmsZLO14FqwfuxyRkSBqh6ibFUC9aZUnky0wVHewF5o_Sa6ZFpg83S-yEUrrlobRSIcKl3d8qtglRbzO1MCcjgqXl_xSMnQ");
-//   },
-//   volume: 0.5
-// }); 
-// player.addListener('ready', ({ device_id }) => {
-//   console.log('The Web Playback SDK is ready to play music!');
-//   console.log('Device ID', device_id);
-// })
-// player.connect().then(success => {
-//   if (success) {
-//     console.log('The Web Playback SDK successfully connected to Spotify!');
-//   }
-// })
-const play = ({
-  spotify_uri,
-  playerInstance: {
-    _options: {
-      getOAuthToken,
-      id
-    }
-  }
-}) => {
-  getOAuthToken (access_token => {
-    fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ uris: [spotify_uri] }),
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${access_token}`
-      },
-    });
-  });
-};
-
-play({
-  playerInstance: new Spotify.Player({ name: "...",
-  getOAuthToken: callback => {
-    // Run code to get a fresh access token
-
-    callback("BQBndIeMPcuFOUSf-vCKYV2Yp2-jrgEqTcwXYnWK_G8GgFR4gSKG4TKB7747eX0CClzHBWdq64baubUhKP1i3mWK4ry0rK8Xcdql0Ml2tvQVCxbF6IemKYGfcqiAcyjJMi7emlf_pyau3zpW3kIi7oRZbfv14rWB9lgk_cHgR6BS9j5a-BWKUMmw2Q");
-  }
-}),
-  spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
-});
- };
-  </script> -->
+    window.onunload=function() {
+      //if (!window.location.href.indexOf("localhost")) {
+        //window.location.href = "https://neonicons.azurewebsites.net/"
+        window.localStorage.setItem("navigate", window.location.href);
+      //}
+    };
+  </script>
   <app-root></app-root>
 </body>
 </html>
