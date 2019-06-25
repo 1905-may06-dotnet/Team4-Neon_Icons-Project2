@@ -11,10 +11,10 @@ export class PreferencesComponent implements OnInit {
 
   constructor(private preferencesService: PreferencesService) { }
 
+  Preferences: Preferences;
+
   ngOnInit() {
   }
-
-  Preferences: Preferences
 
   GetGenre() {
     this.preferencesService.GetGenre(this.Preferences)

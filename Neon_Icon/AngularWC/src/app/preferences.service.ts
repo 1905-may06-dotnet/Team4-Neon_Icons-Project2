@@ -23,7 +23,7 @@ export class PreferencesService {
     private messageService: MessageService
   ) { }
 
-  GetGenre(preferences: Preferences) { //you're supposed to pass in a user here?
+  GetGenre(preferences: Preferences) { // you're supposed to pass in a user here?
     const url = this.userUrl + '/getgenre';
     return this.http.get<Preferences>(url)
       .pipe(
