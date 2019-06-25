@@ -25,28 +25,26 @@ export class UserComponent implements OnInit {
   SwitchToRegister(zip : HTMLInputElement) {
       this.isLoginNotRegister = false;
   }
-  
-  Submit(username: string, password: string, zip: string ){
+
+  Login(username: string, password: string) {
     this.User = new User();
     this.User.username = username;
     this.User.password = password;
-    console.log(this.User);
-    if(this.isLoginNotRegister){
-      this.userService.Login(this.User)
+    this.userService.Login(this.User)
       .subscribe(user => this.User = user)
+  }
+
+  Register(username: string, password: string, zip: string) {
+    this.User = new User();
+    this.User.username = username;
+    this.User.password = password;
+    if (zip.length != 5) {
+      alert("Please enter a valid ZIP Code")
     }
-    else{
-      if (zip.length != 5) {
-        alert("Please enter a valid ZIP Code")
-      }
-      else {
+    else {
       this.User.zip = zip;
       this.userService.Register(this.User)
         .subscribe(user => this.User = user)
-      }
     }
-    
-
   }
-
 }

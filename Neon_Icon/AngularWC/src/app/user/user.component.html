@@ -30,7 +30,7 @@ color="accent"
     <br>
 
     <button class="button" mat-raised-button color="accent"
-        (click)="Submit(usernameInput.value, passwordInput.value, null)">Submit</button>
+        (click)="Login(usernameInput.value, passwordInput.value, null)">Submit</button>
 </div>
 <div *ngIf = (!isLoginNotRegister)>
     <form class="form">
@@ -53,5 +53,5 @@ color="accent"
     <br>
 
     <button class="button" mat-raised-button color="accent"
-        (click)="Submit(usernameInput.value, passwordInput.value, zipInput.value)">Submit</button>
+        (click)="Register(usernameInput.value, passwordInput.value, zipInput.value)">Submit</button>
 </div>
