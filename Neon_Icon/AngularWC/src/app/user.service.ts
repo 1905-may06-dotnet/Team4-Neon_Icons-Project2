@@ -17,11 +17,23 @@ const httpOptions = {
 })
 export class UserService {
 
+  User: User;
+  isLoginNotRegister: boolean;
+
   private userUrl = 'https://neoniconsapi.azurewebsites.net/api/business'; // TODO fix
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { }
+
+  SwitchToLogin() {
+    this.isLoginNotRegister = true;
+  }
+
+  SwitchToRegister() {
+    this.isLoginNotRegister = false;
+  }
 
   Login(user: User) {
     const url = this.userUrl + '/loginuser';
@@ -29,7 +41,8 @@ export class UserService {
       .pipe(
         tap(_ => this.log('Login User')),
         catchError(this.handleError<User>('Login'))
-      );
+      )
+      .subscribe(user => this.User = user);
   }
 
   Register(user: User) {
@@ -39,7 +52,8 @@ export class UserService {
       .pipe(
         tap(_ => this.log('Register User')),
         catchError(this.handleError<User>('Register'))
-      );
+      )
+      .subscribe(user => this.User = user);
   }
 
 

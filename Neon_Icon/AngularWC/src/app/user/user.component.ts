@@ -11,39 +11,34 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  User: User;
-  isLoginNotRegister: boolean;
-
   ngOnInit() {
-    this.isLoginNotRegister = true;
+    this.userService.SwitchToLogin();
   }
 
-  SwitchToLogin(zip: HTMLInputElement) {
-      this.isLoginNotRegister = true;
+  SwitchToLogin() {
+      this.userService.SwitchToLogin();
   }
 
-  SwitchToRegister(zip: HTMLInputElement) {
-      this.isLoginNotRegister = false;
+  SwitchToRegister() {
+    this.userService.SwitchToRegister();
   }
 
   Login(username: string, password: string) {
-    this.User = new User();
-    this.User.username = username;
-    this.User.password = password;
-    this.userService.Login(this.User)
-      .subscribe(user => this.User = user);
+    let user = new User();
+    user.username = username;
+    user.password = password;
+    this.userService.Login(user)
   }
 
   Register(username: string, password: string, zip: string) {
-    this.User = new User();
-    this.User.username = username;
-    this.User.password = password;
+    let user = new User();
+    user.username = username;
+    user.password = password;
+    user.zip = zip;
     if (zip.length !== 5) {
       alert('Please enter a valid ZIP Code');
     } else {
-      this.User.zip = zip;
-      this.userService.Register(this.User)
-        .subscribe(user => this.User = user);
+      this.userService.Register(user);
     }
   }
 }
