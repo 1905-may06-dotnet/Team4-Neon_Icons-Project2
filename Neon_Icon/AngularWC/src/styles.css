@@ -8,7 +8,7 @@ body {
     font-size: 0.5rem;
 }
 
-div{
+div {
   text-align: center;
   font-family: Arial;
 }
@@ -35,5 +35,5 @@ p {
 
 h1 {
   font-family: Impact;
-  text-shadow: 4px 4px #ff0000;
+  text-shadow: 4px 4px #000;
 }
