@@ -2,5 +2,5 @@ export class Weather {
     id: number;
     type: string;
     description: string;
-    defaultGenre: string;
+    default_genre: string;
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { SpotifyService } from '../spotify.service';
+import { WeatherService } from '../weather.service';
+import { Token } from '../access-token';
+import { stringify } from 'querystring';
+
 
 @Component({
   selector: 'app-spotify',
@@ -9,9 +13,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SpotifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  url: SafeResourceUrl;
+
+  constructor(private spotifyService: SpotifyService, public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+  }
+
+  getUrl() {
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.spotifyService.getPlaylist());
+    return this.url;
+  }
+
+  login() {
+    this.spotifyService.login();
+  }
+
+  getToken(): Token {
+    return this.spotifyService.getToken();
   }
 
 }

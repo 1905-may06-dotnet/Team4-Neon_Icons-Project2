@@ -98,7 +98,13 @@
               "e2e/tsconfig.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/authconfig.ts",
+              "**/preferences.ts",
+              "**/user.ts",
+              "**/weather.ts",
+              "**/spotify.service.ts",
+              "**/preferences.service.ts"
             ]
           }
         },

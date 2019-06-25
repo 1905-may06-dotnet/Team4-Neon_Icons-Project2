@@ -1,0 +1,11 @@
+<div *ngIf="!getToken()">
+  <button class="button" mat-raised-button color="accent" (click)="login()">Spotify</button>
+</div>
+
+<div *ngIf="getToken()">
+  <div *ngIf="getUrl()">
+    <iframe [src]="url" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"
+      #player></iframe>
+
+  </div>
+</div>

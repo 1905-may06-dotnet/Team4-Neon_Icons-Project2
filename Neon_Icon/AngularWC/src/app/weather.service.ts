@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Weather } from './Weather';
+import { Weather } from './weather';
 import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
-//test commit
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,19 +15,24 @@ const httpOptions = {
 
 export class WeatherService {
 
-  private weatherUrl = 'http://neonicons.azurewebsites.net/api/values/getweather/';
+  weather: Weather;
+  zip: string;
+  imagesrc: string;
+
+  private weatherUrl = 'https://neoniconsapi.azurewebsites.net/api/values/getweather/';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { }
 
-  getWeather(zip: string): Observable<Weather> {
-    return this.http.get<Weather>(this.weatherUrl + zip)
+  getWeather(zip: string) {
+    this.http.get<Weather>(this.weatherUrl + zip)
      .pipe(
        tap(_ => this.log('fetched Weather')),
        catchError(this.handleError<Weather>('getWeather'))
-     );
+     )
+     .subscribe(x => {this.weather = x; this.imagesrc = this.getImage(x.type); });
   }
 
   getImage(type: string): string {

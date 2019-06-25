@@ -1,35 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, ScopesBuilder, AuthConfig, TokenService } from 'spotify-auth';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { SpotifyService } from '../spotify.service';
+import { Token } from '../access-token';
 
 @Component({
    selector: 'app-login',
-   template: `
-   <span>Login with</span>
-   <div class="img-container">
-     <img src="assets/spotify.png" height=10% width=10% (click)="login()" />
-   </div>`
+   templateUrl: './spotify-callback.component.html',
+   styleUrls: ['./spotify-callback.component.css']
 })
 export class SpotifyCallbackComponent implements OnInit {
 
-  constructor(private authService: AuthService, private tokenSvc: TokenService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private spotifyService: SpotifyService, private router: Router) { }
 
   ngOnInit() {
-    if(!!this.tokenSvc.oAuthToken){
-      this.router.navigate(['user']);
-    }
-  }
+    this.route.fragment.subscribe(fragment => {
+      const params = new URLSearchParams(fragment);
 
-  public login(): void {
-    const scopes = new ScopesBuilder()/* .withScopes(ScopesBuilder.LIBRARY) */.build();
-    const ac: AuthConfig = {
-      client_id: "3af5f43840144db2a5ef883b56c5fb7e",  // WebPortal App Id. Shoud be config
-      response_type: "token",
-      redirect_uri: "http://7jpsan.github.io/spotify-auth-demo/authorized",  // My URL
-      state: "",
-      show_dialog: true,
-      scope: scopes
-    };
-    this.authService.configure(ac).authorize();
+      this.spotifyService.accessToken = new Token();
+      this.spotifyService.accessToken.token = params.get('access_token');
+      this.spotifyService.accessToken.tokenType = params.get('token_type');
+      //console.log(this.spotifyService.getToken());
+
+      this.router.navigate(['weather']);
+    });
   }
 }

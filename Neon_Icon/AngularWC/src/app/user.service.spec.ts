@@ -1,9 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-
-import { UserService } from './user.service';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from '../app/user.service';
 
 describe('UserService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+
+  const httpSpy = jasmine.createSpyObj('HttpClient', ['get']);
+
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [
+      { provide: HttpClient, useValue: httpSpy }
+    ]
+  }));
 
   it('should be created', () => {
     const service: UserService = TestBed.get(UserService);
