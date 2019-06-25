@@ -12,18 +12,18 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   User: User;
-  isLoginOrRegister: boolean;
+  isLoginNotRegister: boolean;
 
   ngOnInit() {
-    this.isLoginOrRegister = true;
+    this.isLoginNotRegister = true;
   }
 
   SwitchToLogin(zip: HTMLInputElement) {
-      this.isLoginOrRegister = true;
+      this.isLoginNotRegister = true;
   }
 
   SwitchToRegister(zip : HTMLInputElement) {
-      this.isLoginOrRegister = false;
+      this.isLoginNotRegister = false;
   }
   
   Submit(username: string, password: string, zip: string ){
@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
     this.User.username = username;
     this.User.password = password;
     console.log(this.User);
-    if(this.isLoginOrRegister){
+    if(this.isLoginNotRegister){
       this.userService.Login(this.User)
       .subscribe(user => this.User = user)
     }

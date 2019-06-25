@@ -24,14 +24,8 @@ export class UserService {
   ) { }
 
   Login(user: User) {
-<<<<<<< HEAD
     let url = this.userUrl + "/loginuser";
     return this.http.post<User>(url, user, httpOptions)
-=======
-    let url = this.userUrl;
-    
-    return this.http.post<User>(url, user)
->>>>>>> d996448abecde3523f5d2f72d9ad9bf2cfa22b74
       .pipe(
         tap(_ => this.log('Login User')),
         catchError(this.handleError<User>('Login'))
