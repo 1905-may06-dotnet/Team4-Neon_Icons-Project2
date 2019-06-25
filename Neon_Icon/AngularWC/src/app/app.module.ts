@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -30,22 +30,17 @@ import { PreferencesComponent } from './preferences/preferences.component';
   imports: [
     BrowserModule,
     MatFormFieldModule,
-    MatInputModule,
     FormsModule,
+    MatInputModule,
     AppRoutingModule,
     MatButtonModule,
     MatSelectModule,
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  exports: [
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 
 export class AppModule { }

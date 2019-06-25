@@ -3,7 +3,6 @@ import { Weather } from '../Weather';
 import { WeatherService } from '../Weather.service';
 import { SpotifyService } from '../spotify.service';
 
-
 @Component({
   selector: 'app-weather',
   templateUrl: './Weather.component.html',
