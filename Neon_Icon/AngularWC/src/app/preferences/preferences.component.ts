@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Preferences } from '../preferences';
+import { PreferencesService } from '../preferences.service';
 
 @Component({
   selector: 'app-preferences',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreferencesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private preferencesService: PreferencesService) { }
 
   ngOnInit() {
   }
 
+  Preferences: Preferences
+
+  GetGenre() {
+    this.preferencesService.GetGenre(this.Preferences)
+      .subscribe(preferences => this.Preferences = preferences);
+  }
+
+  UpdatePreference() {
+    this.preferencesService.UpdatePreference(this.Preferences)
+      .subscribe(preferences => this.Preferences = preferences);
+  }
+
+  RemovePreference() {
+    this.preferencesService.RemovePreference(this.Preferences)
+      .subscribe(preferences => this.Preferences = preferences);
+  }
 }
