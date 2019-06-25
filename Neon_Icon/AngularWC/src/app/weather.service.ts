@@ -15,6 +15,10 @@ const httpOptions = {
 
 export class WeatherService {
 
+  Weather: Weather;
+  zip: string;
+  imagesrc: string;
+
   private weatherUrl = 'https://neoniconsapi.azurewebsites.net/api/values/getweather/';
 
   constructor(
@@ -22,12 +26,13 @@ export class WeatherService {
     private messageService: MessageService
   ) { }
 
-  getWeather(zip: string): Observable<Weather> {
-    return this.http.get<Weather>(this.weatherUrl + zip)
+  getWeather(zip: string) {
+    this.http.get<Weather>(this.weatherUrl + zip)
      .pipe(
        tap(_ => this.log('fetched Weather')),
        catchError(this.handleError<Weather>('getWeather'))
-     );
+     )
+     .subscribe(x => {this.Weather = x; this.imagesrc = this.getImage(x.type); });
   }
 
   getImage(type: string): string {

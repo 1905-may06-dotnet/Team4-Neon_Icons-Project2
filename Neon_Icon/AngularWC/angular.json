@@ -100,6 +100,7 @@
             "exclude": [
               "**/node_modules/**",
               "**/authconfig.ts",
+              "**/weather.ts",
               "**/spotify.service.ts"
             ]
           }

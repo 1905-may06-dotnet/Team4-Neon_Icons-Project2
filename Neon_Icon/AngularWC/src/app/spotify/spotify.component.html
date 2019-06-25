@@ -6,15 +6,12 @@ color="accent"
 </div>
 
 <div *ngIf="getToken()">
-    <p>TOKEN ACQUIRED</p>
+  <p>TOKEN ACQUIRED</p>
 
-  <iframe src={{getUrl()}} width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-
-
-
-
-
-
-
+  <div *ngIf="getUrl()">
+    <p>getUrl() has been called</p>
+    
+    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media" #player></iframe>
+    
+  </div>
 </div>

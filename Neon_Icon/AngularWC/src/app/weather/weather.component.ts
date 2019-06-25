@@ -12,15 +12,10 @@ export class WeatherComponent implements OnInit {
 
   constructor(private weatherService: WeatherService, private spotifyService: SpotifyService) { }
 
-  Weather: Weather;
-  zip: string;
-  imagesrc: string;
-
   ngOnInit() {
   }
 
   getWeather(zip: string): void {
-    this.weatherService.getWeather(zip)
-    .subscribe(x => {this.Weather = x; this.imagesrc = this.weatherService.getImage(x.type); });
+    this.weatherService.getWeather(zip);
   }
 }

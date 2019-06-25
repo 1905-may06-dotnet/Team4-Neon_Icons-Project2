@@ -11,11 +11,12 @@
         <button class="button" mat-raised-button color="accent" (click)="getWeather(zipinput.value)">Submit</button>
 
 
-        <div id="display" *ngIf="Weather" ngDefaultControl>
+        <div id="display" *ngIf="weatherService.Weather" ngDefaultControl>
 
-                <p>{{Weather.description | titlecase}}</p><br>
+                <p>{{weatherService.Weather.description | titlecase}}</p><br>
+                <p>{{weatherService.Weather.default_genre | titlecase}}</p><br>
 
-                <img src={{imagesrc}} />
+                <img src={{weatherService.imagesrc}} />
 
         </div>
 </div>
