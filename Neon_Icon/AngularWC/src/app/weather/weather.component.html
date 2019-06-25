@@ -11,7 +11,7 @@
         <button class="button" mat-raised-button color="accent" (click)="getWeather(zipinput.value)">Submit</button>
 
 
-        <div id="display" *ngIf="weatherService.Weather" ngDefaultControl>
+        <div id="display" *ngIf="weatherService.weather" ngDefaultControl>
 
                 <p>{{weatherService.Weather.description | titlecase}}</p><br>
 

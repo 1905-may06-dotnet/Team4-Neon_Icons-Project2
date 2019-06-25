@@ -17,8 +17,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  User: User;
-  isLoginNotRegister: boolean;
+  user: User;
 
   private userUrl = 'https://neoniconsapi.azurewebsites.net/api/business'; // TODO fix
 
@@ -27,12 +26,9 @@ export class UserService {
     private messageService: MessageService
   ) { }
 
-  SwitchToLogin() {
-    this.isLoginNotRegister = true;
-  }
-
-  SwitchToRegister() {
-    this.isLoginNotRegister = false;
+  IsLoggedIn(): Boolean {
+    if (this.user) return true;
+    else return false;
   }
 
   Login(user: User) {
@@ -42,7 +38,11 @@ export class UserService {
         tap(_ => this.log('Login User')),
         catchError(this.handleError<User>('Login'))
       )
-      .subscribe(user => this.User = user);
+      .subscribe(user => this.user = user);
+  }
+
+  Logout () {
+    this.user = null;
   }
 
   Register(user: User) {
@@ -53,7 +53,18 @@ export class UserService {
         tap(_ => this.log('Register User')),
         catchError(this.handleError<User>('Register'))
       )
-      .subscribe(user => this.User = user);
+      .subscribe(user => this.user = user);
+  }
+
+  UpdateLocation(zip: string) {
+    const url = this.userUrl + '/updatelocation';
+    this.user.zip = zip;
+    return this.http.put<User>(url, this.user, httpOptions)
+      .pipe(
+        tap(_ => this.log('Update User Location')),
+        catchError(this.handleError<User>('Update Location'))
+      )
+      .subscribe(user => this.user = user);
   }
 
 

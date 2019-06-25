@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
 
-
+import { Weather } from './weather';
 import { Preferences } from './preferences';
 
 const httpOptions = {
@@ -24,12 +24,22 @@ export class PreferencesService {
   ) { }
 
   GetGenre(preferences: Preferences) { // you're supposed to pass in a user here?
-    const url = this.userUrl + '/getgenre';
-    return this.http.get<Preferences>(url)
+
+    const params = new URLSearchParams();
+
+    for (const key in preferences) {
+      params.set(key, JSON.stringify(preferences[key]));
+    }
+
+    console.log(params.toString());
+
+    const url = this.userUrl + '/getgenre?';
+    return this.http.get<Weather>(this.userUrl)
       .pipe(
         tap(_ => this.log('Fetched Genre')),
-        catchError(this.handleError<Preferences>('GetGenre'))
-      );
+        catchError(this.handleError<Weather>('GetGenre'))
+      )
+      .subscribe(x => console.log(x));
   }
 
   UpdatePreference(preferences: Preferences) {

@@ -8,19 +8,21 @@ import { UserService } from '../user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  
+  isLoginNotRegister: boolean;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.SwitchToLogin();
+    this.SwitchToLogin();
   }
 
   SwitchToLogin() {
-      this.userService.SwitchToLogin();
+    this.isLoginNotRegister = true;
   }
 
   SwitchToRegister() {
-    this.userService.SwitchToRegister();
+    this.isLoginNotRegister = false;
   }
 
   Login(username: string, password: string) {

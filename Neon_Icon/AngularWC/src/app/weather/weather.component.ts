@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Weather } from '../Weather';
-import { WeatherService } from '../Weather.service';
+import { Weather } from '../weather';
+import { WeatherService } from '../weather.service';
 import { SpotifyService } from '../spotify.service';
 
 @Component({

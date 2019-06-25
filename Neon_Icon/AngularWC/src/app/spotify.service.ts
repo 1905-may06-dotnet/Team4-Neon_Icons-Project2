@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { AuthConfig } from './authconfig';
 import { Token } from './access-token';
-import { WeatherService } from './Weather.service';
+import { WeatherService } from './weather.service';
 
 @Injectable({
   providedIn: 'root'
@@ -36,9 +36,9 @@ export class SpotifyService {
   
   getPlaylist() : string {
     let append = "";
-    if (!this.weatherService.Weather) return "";
+    if (!this.weatherService.weather) return "";
 
-    switch (this.weatherService.Weather.default_genre) {
+    switch (this.weatherService.weather.default_genre) {
       case("African Percussion"):{
         append = "playlist/23e4SXJoxyNtQ3s2mSb5dx";
         break;
