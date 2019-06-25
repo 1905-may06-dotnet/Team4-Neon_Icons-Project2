@@ -14,6 +14,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { MessagesComponent } from './messages/messages.component';
 import { UserComponent } from './user/user.component';
 import { PreferencesComponent } from './preferences/preferences.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { PreferencesComponent } from './preferences/preferences.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([]),
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
