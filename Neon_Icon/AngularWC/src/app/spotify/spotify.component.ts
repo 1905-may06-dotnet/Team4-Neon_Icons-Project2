@@ -12,13 +12,18 @@ export class SpotifyComponent implements OnInit {
 
   constructor(private spotifyService: SpotifyService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    window.addEventListener(' SpotifyWebPlaybackSDKReady', function(){
+      console.log('sdkready');
+    });
+  }
 
   login() {
     this.spotifyService.login();
   }
 
   getToken(): Token {
+      console.log(this.spotifyService.getToken());
     return this.spotifyService.getToken();
   }
 
