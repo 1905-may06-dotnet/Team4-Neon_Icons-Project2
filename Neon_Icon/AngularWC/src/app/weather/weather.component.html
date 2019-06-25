@@ -14,7 +14,6 @@
         <div id="display" *ngIf="weatherService.Weather" ngDefaultControl>
 
                 <p>{{weatherService.Weather.description | titlecase}}</p><br>
-                <p>{{weatherService.Weather.default_genre | titlecase}}</p><br>
 
                 <img src={{weatherService.imagesrc}} />
 

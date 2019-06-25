@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SpotifyService } from '../spotify.service';
+import { WeatherService } from '../weather.service';
 import { Token } from '../access-token';
 import { stringify } from 'querystring';
 
@@ -11,18 +13,15 @@ import { stringify } from 'querystring';
 })
 export class SpotifyComponent implements OnInit {
 
-  url: string;
+  url: SafeResourceUrl;
 
-  constructor(private spotifyService: SpotifyService) { }
+  constructor(private spotifyService: SpotifyService, private weatherService: WeatherService, public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
 
-  getUrl(): string {
-    //https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb
-    this.url = "https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb";
-    this.url = this.spotifyService.getPlaylist();
-    console.log("spotify.component" + this.url);
+  getUrl() {
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.spotifyService.getPlaylist());
     return this.url;
   }
 

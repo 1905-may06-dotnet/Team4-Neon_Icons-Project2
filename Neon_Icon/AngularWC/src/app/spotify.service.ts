@@ -36,17 +36,71 @@ export class SpotifyService {
   
   getPlaylist() : string {
     let append = "";
-    console.log(this.weatherService.Weather);
+    if (!this.weatherService.Weather) return "";
 
     switch (this.weatherService.Weather.default_genre) {
+      case("African Percussion"):{
+        append = "playlist/23e4SXJoxyNtQ3s2mSb5dx";
+        break;
+      }
+      case("Classical"):{
+        append = "playlist/37i9dQZF1DWWEJlAGA9gs0";
+        break;
+      }
+      case("R&B"):{
+        append = "playlist/78tPw9siuiq0XkhByNnYdR";
+        break;
+      }
+      case("Christmas"):{
+        append = "playlist/37i9dQZF1DX6R7QUWePReA";
+        break;
+      }
+      case("Jazz"):{
+        append = "playlist/37i9dQZF1DX0SM0LYsmbMT";
+        break;
+      }
+      case("Cyberpunk"):{
+        append = "playlist/14qJzgRFchq4m6cdvORWah";
+        break;
+      }
+      case("EDM"):{
+        append = "playlist/37i9dQZF1DX6J5NfMJS675";
+        break;
+      }
+      case("Western"):{
+        append = "playlist/37i9dQZF1DWUPRADzDnbMq";
+        break;
+      }
+      case("Punk"):{
+        append = "playlist/37i9dQZF1DX3MU5XUozve7";
+        break;
+      }
+      case("Arab Pop"):{
+        append = "playlist/37i9dQZF1DXd43GfSFAeHA";
+        break;
+      }
+      case("Rap"):{
+        append = "playlist/5772HGqmp2E99GQo5tfmcJ";
+        break;
+      }
+      case("Rock"):{
+        append = "playlist/37i9dQZF1DX8FwnYE6PRvL";
+        break;
+      }
+      case("Metal"):{
+        append = "playlist/37i9dQZF1DXbj9Ksq4BAdj";
+        break;
+      }
       case("Pop"):{
         append = "playlist/37i9dQZF1DX1BzILRveYHb";
         break;
       }
+      case("Indie"):{
+        append = "playlist/37i9dQZF1DX2Nc3B70tvx0";
+        break;
+      }
     }
-    let url = this.baseUrl + append;
-    console.log(url);
-    return url;
+    return this.baseUrl + append;
   // African Percussion: playlist/23e4SXJoxyNtQ3s2mSb5dx
   // Classical: playlist/37i9dQZF1DWWEJlAGA9gs0
   // R&B: playlist/78tPw9siuiq0XkhByNnYdR

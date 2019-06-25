@@ -1,17 +1,11 @@
 <div *ngIf="!getToken()">
-<button class="button" 
-mat-raised-button
-color="accent"
-(click)="login()">Spotify</button>
+  <button class="button" mat-raised-button color="accent" (click)="login()">Spotify</button>
 </div>
 
 <div *ngIf="getToken()">
-  <p>TOKEN ACQUIRED</p>
-
   <div *ngIf="getUrl()">
-    <p>getUrl() has been called</p>
-    
-    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media" #player></iframe>
-    
+    <iframe [src]="url" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"
+      #player></iframe>
+
   </div>
 </div>
