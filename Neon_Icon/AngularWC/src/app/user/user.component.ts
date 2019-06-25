@@ -26,7 +26,6 @@ export class UserComponent implements OnInit {
       this.isLoginNotRegister = false;
   }
 
-<<<<<<< HEAD
   Login(username: string, password: string) {
     this.User = new User();
     this.User.username = username;
@@ -47,26 +46,5 @@ export class UserComponent implements OnInit {
       this.userService.Register(this.User)
         .subscribe(user => this.User = user)
     }
-=======
-  Submit(username: string, password: string, zip: string ) {
-    this.User = new User();
-    this.User.username = username;
-    this.User.password = password;
-    console.log(this.User);
-    if(this.isLoginNotRegister){
-      this.userService.Login(this.User)
-      .subscribe(user => this.User = user);
-    } else {
-      if (zip.length !== 5) {
-        alert('Please enter a valid ZIP Code');
-      } else {
-      this.User.zip = zip;
-      this.userService.Register(this.User)
-        .subscribe(user => this.User = user);
-      }
-    }
-
-
->>>>>>> 16fb6f36764defcbd9f2f883af289feac78afae8
   }
 }
