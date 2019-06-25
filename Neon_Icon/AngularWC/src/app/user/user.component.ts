@@ -27,7 +27,7 @@ export class UserComponent implements OnInit {
     let user = new User();
     user.username = username;
     user.password = password;
-    this.userService.Login(user)
+    this.userService.Login(user);
   }
 
   Register(username: string, password: string, zip: string) {
@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
     user.password = password;
     user.zip = zip;
     if (zip.length !== 5) {
-      alert('Please enter a valid ZIP Code');
+      return;
     } else {
       this.userService.Register(user);
     }
