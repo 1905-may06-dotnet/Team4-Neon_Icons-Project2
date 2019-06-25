@@ -15,7 +15,7 @@ describe('SpotifyCallbackComponent', () => {
       { provide: HttpClient, useValue: httpSpy }
     ]
   }));
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [

@@ -14,7 +14,7 @@ describe('SpotifyComponent', () => {
       { provide: HttpClient, useValue: httpSpy }
     ]
   }));
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SpotifyComponent ]
