@@ -18,11 +18,11 @@ export class UserComponent implements OnInit {
     this.isLoginOrRegister = true;
   }
 
-  Login(zip: HTMLInputElement) {
+  SwitchToLogin(zip: HTMLInputElement) {
       this.isLoginOrRegister = true;
   }
 
-  Register(zip : HTMLInputElement) {
+  SwitchToRegister(zip : HTMLInputElement) {
       this.isLoginOrRegister = false;
   }
   
