@@ -19,13 +19,9 @@ namespace Test
             this.mockPreference = new Mock<PreferenceRepository>();
             this.mockWeather = new Mock<WeatherRepository>();
 
-            IList<Location> locations = new List<Location>()
+            IList<string> locations = new List<string>()
             {
-                new Location
-                {
-                    id = 0,
-                    zip = "zip0"
-                }
+                "zip0"
             };
 
             
@@ -45,7 +41,7 @@ namespace Test
                 new User
                 {
                     id = 0,
-                    location = locations.Where(x => x.id == 0).FirstOrDefault(),
+                    location = locations[0],
                     username = "testUsername0",
                     password = "testPassword0"
                 }

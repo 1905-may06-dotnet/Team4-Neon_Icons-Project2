@@ -9,29 +9,6 @@ namespace Data
 {
     public static class Mapper
     {
-        // A class which maps data and domain entities
-        public static DomainEntities.Location Map(Entities.Locations l)
-        {
-            if (l == null) { return null; }
-
-            return new DomainEntities.Location
-            {
-                id = l.Id,
-                zip = l.Location
-            };
-        }
-
-        public static Entities.Locations Map(DomainEntities.Location l)
-        {
-            if (l == null) { return null; }
-
-            return new Entities.Locations
-            {
-                Id = l.id,
-                Location = l.zip
-            };
-        }
-
         public static DomainEntities.Preference Map(Entities.Preferences p)
         {
             if (p == null) { return null; }
@@ -68,7 +45,7 @@ namespace Data
                 username = u.Username,
                 password = u.Password,
 
-                location = Map(DatabaseInstance.GetContext().Locations.Find(u.LocationId))
+                location = u.Location
             };
         }
 
@@ -81,7 +58,7 @@ namespace Data
                 Id = u.id,
                 Username = u.username,
                 Password = u.password,
-                LocationId = u.location.id
+                Location = u.location
             };
         }
 
@@ -111,8 +88,6 @@ namespace Data
             };
         }
 
-        public static IEnumerable<DomainEntities.Location> Map(IEnumerable<Entities.Locations> l) => l.Select(Map);
-        public static IEnumerable<Entities.Locations> Map(IEnumerable<DomainEntities.Location> l) => l.Select(Map);
         public static IEnumerable<DomainEntities.Preference> Map(IEnumerable<Entities.Preferences> p) => p.Select(Map);
         public static IEnumerable<Entities.Preferences> Map(IEnumerable<DomainEntities.Preference> p) => p.Select(Map);
         public static IEnumerable<DomainEntities.User> Map(IEnumerable<Entities.Users> u) => u.Select(Map);

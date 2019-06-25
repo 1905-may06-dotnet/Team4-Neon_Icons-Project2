@@ -17,10 +17,8 @@ namespace Data.Entities
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        [ForeignKey("Locations")]
-        public int? LocationId { get; set; }
+        public string Location { get; set; }
 
-        public virtual Locations Location { get; set; }
         public virtual ICollection<Preferences> Preferences { get; set; }
     }
 }

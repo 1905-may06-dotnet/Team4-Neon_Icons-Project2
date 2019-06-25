@@ -34,7 +34,6 @@ namespace WebApi.Controllers
         /// <returns></returns>
         public ActionResult<Domain.DomainEntities.Weather> GetWeather(string zip)
         {
-            Domain.DomainEntities.Location location = new Domain.DomainEntities.Location() { zip = zip };
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
             Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
             Domain.DomainEntities.Weather rweather = wdb.GetWeather(weather);
@@ -55,7 +54,7 @@ namespace WebApi.Controllers
             Domain.DomainEntities.User user = udb.Find(client.username);
 
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
-            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(user.location.zip);
+            Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(user.location);
             weather = wdb.GetWeather(weather);
             Domain.DomainEntities.Preference preference = new Domain.DomainEntities.Preference();
 
