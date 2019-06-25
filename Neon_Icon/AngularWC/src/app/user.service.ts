@@ -6,7 +6,7 @@ import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
-import {User } from './user'
+import {User } from './user';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,15 +17,15 @@ const httpOptions = {
 })
 export class UserService {
 
-  private userUrl = 'http://neoniconsapi.azurewebsites.net/api/business' //TODO fix
+  private userUrl = 'http://neoniconsapi.azurewebsites.net/api/business'; // TODO fix
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { }
 
   Login(user: User) {
-    let url = this.userUrl;
-    
+    const url = this.userUrl;
+
     return this.http.post<User>(url, user)
       .pipe(
         tap(_ => this.log('Login User')),
@@ -34,13 +34,13 @@ export class UserService {
   }
 
   Register(user: User) {
-    let url = this.userUrl + "/register";
+    const url = this.userUrl + '/register';
 
     return this.http.post<User>(url, user)
       .pipe(
         tap(_ => this.log('Register User')),
         catchError(this.handleError<User>('Register'))
-      )
+      );
   }
 
 

@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   constructor(private  router: Router) {}
-  
+
   title = 'Neon Icons';
 
-  ngOnInit(): void { }
+  ngOnInit() { }
 }

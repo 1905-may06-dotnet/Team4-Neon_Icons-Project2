@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../spotify.service';
-import { Token } from "../access-token";
+import { Token } from '../access-token';
 
 @Component({
   selector: 'app-spotify',
@@ -14,10 +14,10 @@ export class SpotifyComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    this.spotifyService.login()
+    this.spotifyService.login();
   }
 
-  getToken() : Token {
+  getToken(): Token {
     return this.spotifyService.getToken();
   }
 

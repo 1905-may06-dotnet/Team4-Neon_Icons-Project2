@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/weather', pathMatch: 'full' },
-  //{ path: 'spotifycallback', pathMatch: 'full' },
+  // { path: 'spotifycallback', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'spotify', component: SpotifyComponent },
