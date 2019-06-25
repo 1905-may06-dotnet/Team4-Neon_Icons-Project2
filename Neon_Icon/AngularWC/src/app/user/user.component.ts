@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
       this.isLoginNotRegister = true;
   }
 
-  SwitchToRegister(zip : HTMLInputElement) {
+  SwitchToRegister(zip: HTMLInputElement) {
       this.isLoginNotRegister = false;
   }
 
@@ -31,20 +31,19 @@ export class UserComponent implements OnInit {
     this.User.username = username;
     this.User.password = password;
     this.userService.Login(this.User)
-      .subscribe(user => this.User = user)
+      .subscribe(user => this.User = user);
   }
 
   Register(username: string, password: string, zip: string) {
     this.User = new User();
     this.User.username = username;
     this.User.password = password;
-    if (zip.length != 5) {
-      alert("Please enter a valid ZIP Code")
-    }
-    else {
+    if (zip.length !== 5) {
+      alert('Please enter a valid ZIP Code');
+    } else {
       this.User.zip = zip;
       this.userService.Register(this.User)
-        .subscribe(user => this.User = user)
+        .subscribe(user => this.User = user);
     }
   }
 }
