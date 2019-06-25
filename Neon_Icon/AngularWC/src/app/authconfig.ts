@@ -4,5 +4,5 @@ export class AuthConfig {
     redirect_uri: string = "http://localhost:4200/spotifycallback";
     state: string = "";
     show_dialog: string = "false";
-    scope: string = "user-read-private user-read-email"
+    scope: string = "user-read-private user-read-email streaming user-modify-playback-state"
 }
