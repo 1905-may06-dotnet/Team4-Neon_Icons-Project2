@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClient } from '@angular/common/http';
 import { SpotifyCallbackComponent } from './spotify-callback.component';
+
 
 describe('SpotifyCallbackComponent', () => {
   let component: SpotifyCallbackComponent;
