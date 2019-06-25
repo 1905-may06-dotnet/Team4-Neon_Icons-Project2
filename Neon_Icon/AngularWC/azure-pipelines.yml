@@ -48,5 +48,5 @@ steps:
     azureSubscription: 'Pay-As-You-Go(d30e4b38-6958-43b6-ad79-a05f240c8380)'
     appType: 'webApp'
     WebAppName: 'NeonIcons'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/dist/*'
+    package: '$(System.DefaultWorkingDirectory)/dist/AngularWC'
   displayName: Deploy to Azure App Service
