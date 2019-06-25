@@ -1,28 +1,21 @@
 <br>
-<button class="button" 
-mat-raised-button
-color="accent" 
-(click)="SwitchToLogin(zipInput)">Login</button>
+<button class="button" mat-raised-button color="accent" (click)="SwitchToLogin(zipInput)">Login</button>
 <br>
 <br>
-<button 
-class="button" 
-mat-raised-button
-color="accent" 
-(click)="SwitchToRegister(zipInput)">Register</button>
+<button class="button" mat-raised-button color="accent" (click)="SwitchToRegister(zipInput)">Register</button>
 
 <br>
 <br>
-<div *ngIf = (isLoginNotRegister)>
-    <form class="form">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Enter username" type="text" required #usernameInput><br>
-        </mat-form-field><br>
+<div *ngIf=(isLoginNotRegister)>
 
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Enter password" type="password" required #passwordInput><br>
-        </mat-form-field><br>
-    </form>
+    <mat-form-field class="form">
+        <input matInput placeholder="Enter username" type="text" required #usernameInput><br>
+    </mat-form-field><br>
+
+    <mat-form-field class="form">
+        <input matInput placeholder="Enter password" type="password" required #passwordInput><br>
+    </mat-form-field><br>
+
 
 
     <br>
@@ -32,20 +25,20 @@ color="accent"
     <button class="button" mat-raised-button color="accent"
         (click)="Login(usernameInput.value, passwordInput.value, null)">Submit</button>
 </div>
-<div *ngIf = (!isLoginNotRegister)>
-    <form class="form">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Enter username" type="text" required #usernameInput><br>
-        </mat-form-field><br>
+<div *ngIf=(!isLoginNotRegister)>
 
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Enter password" type="password" required #passwordInput><br>
-        </mat-form-field><br>
+    <mat-form-field class="form">
+        <input matInput placeholder="Enter username" type="text" required #usernameInput><br>
+    </mat-form-field><br>
 
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Enter zip" type="text" required #zipInput><br>
-        </mat-form-field>
-    </form>
+    <mat-form-field class="form">
+        <input matInput placeholder="Enter password" type="password" required #passwordInput><br>
+    </mat-form-field><br>
+
+    <mat-form-field class="form">
+        <input matInput placeholder="Enter zip" type="text" required #zipInput><br>
+    </mat-form-field>
+
 
 
     <br>

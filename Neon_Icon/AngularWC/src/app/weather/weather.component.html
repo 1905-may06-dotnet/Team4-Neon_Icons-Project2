@@ -1,35 +1,23 @@
+<br />
 <div id="container">
-                
-<form class="form">
-        <mat-form-field class="example-full-width">
-                <input 
-                matInput name="zip-code" 
-                placeholder="Enter ZIP Code" 
-                type="number" 
-                pattern="/^\d{5}$/" 
-                minlenght="5" 
-                maxlength="5" 
-                required 
-                #zipinput>
+
+        <mat-form-field class="form">
+                <input matInput name="zip-code" placeholder="Enter ZIP Code" type="number" pattern="/^\d{5}$/"
+                        minlenght="5" maxlength="5" required #zipinput>
         </mat-form-field>
-</form>
 
-<button class="button" 
-mat-raised-button
-color="accent"
-(click)="getWeather(zipinput.value)">Submit</button>
+        <br />
+        <br />
+        <button class="button" mat-raised-button color="accent" (click)="getWeather(zipinput.value)">Submit</button>
 
 
-<div id="display" *ngIf="Weather" ngDefaultControl [(ngModel)]="Weather">
+        <div id="display" *ngIf="Weather" ngDefaultControl>
 
-        <p>{{Weather.description | titlecase}}</p><br>
+                <p>{{Weather.description | titlecase}}</p><br>
 
-    <img src={{imagesrc}}/> 
+                <img src={{imagesrc}} />
 
-
-    
-    
-</div>
+        </div>
 </div>
 <br>
 <app-spotify>/</app-spotify>
