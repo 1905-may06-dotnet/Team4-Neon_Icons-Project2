@@ -26,9 +26,8 @@ export class UserService {
     private messageService: MessageService
   ) { }
 
-  IsLoggedIn(): Boolean {
-    if (this.user) return true;
-    else return false;
+  IsLoggedIn() {
+    return this.user;
   }
 
   Login(user: User) {
@@ -38,10 +37,10 @@ export class UserService {
         tap(_ => this.log('Login User')),
         catchError(this.handleError<User>('Login'))
       )
-      .subscribe(user => this.user = user);
+      .subscribe();
   }
 
-  Logout () {
+  Logout() {
     this.user = null;
   }
 
@@ -53,7 +52,7 @@ export class UserService {
         tap(_ => this.log('Register User')),
         catchError(this.handleError<User>('Register'))
       )
-      .subscribe(user => this.user = user);
+      .subscribe();
   }
 
   UpdateLocation(zip: string) {

@@ -15,7 +15,7 @@ export class SpotifyComponent implements OnInit {
 
   url: SafeResourceUrl;
 
-  constructor(private spotifyService: SpotifyService, private weatherService: WeatherService, public sanitizer: DomSanitizer) { }
+  constructor(private spotifyService: SpotifyService, public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }

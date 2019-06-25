@@ -22,14 +22,14 @@ export class PreferencesComponent implements OnInit {
   GetGenre() {
     this.Preferences = new Preferences();
     this.Preferences.client = new User();
-    this.Preferences.client.username = "username";
-    this.Preferences.client.password = "password";
-    this.Preferences.client.zip = "zip";
+    this.Preferences.client.username = 'username';
+    this.Preferences.client.password = 'password';
+    this.Preferences.client.zip = 'zip';
     this.Preferences.preference = new Weather();
-    this.Preferences.preference.type = "type";
-    this.Preferences.preference.description = "description";
-    this.Preferences.preference.default_genre = "genre";
-    this.preferencesService.GetGenre(this.Preferences)
+    this.Preferences.preference.type = 'type';
+    this.Preferences.preference.description = 'description';
+    this.Preferences.preference.default_genre = 'genre';
+    this.preferencesService.GetGenre(this.Preferences);
   }
 
   UpdatePreference() {

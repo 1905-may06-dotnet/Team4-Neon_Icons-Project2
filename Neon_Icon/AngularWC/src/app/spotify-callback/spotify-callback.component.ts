@@ -19,7 +19,7 @@ export class SpotifyCallbackComponent implements OnInit {
       this.spotifyService.accessToken = new Token();
       this.spotifyService.accessToken.token = params.get('access_token');
       this.spotifyService.accessToken.tokenType = params.get('token_type');
-      // console.log(this.spotifyService.getToken());
+      //console.log(this.spotifyService.getToken());
 
       this.router.navigate(['weather']);
     });

@@ -9,7 +9,7 @@ describe('WeatherComponent', () => {
   let fixture: ComponentFixture<WeatherComponent>;
 
   const spyService = jasmine.createSpyObj('HttpClient', ['get']);
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [

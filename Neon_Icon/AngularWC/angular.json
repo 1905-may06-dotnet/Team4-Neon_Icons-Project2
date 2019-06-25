@@ -103,7 +103,8 @@
               "**/preferences.ts",
               "**/user.ts",
               "**/weather.ts",
-              "**/spotify.service.ts"
+              "**/spotify.service.ts",
+              "**/preferences.service.ts"
             ]
           }
         },

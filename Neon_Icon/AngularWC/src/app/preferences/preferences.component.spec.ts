@@ -13,7 +13,7 @@ describe('PreferencesComponent', () => {
       { provide: HttpClient, useValue: spyService }
     ]
   }));
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ PreferencesComponent ]

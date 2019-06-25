@@ -16,10 +16,9 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather(zip: string): void {
-    if (zip.length !== 5){
+    if (zip.length !== 5) {
       return;
-    }
-    else{
+    } else {
     this.weatherService.getWeather(zip);
     }
   }

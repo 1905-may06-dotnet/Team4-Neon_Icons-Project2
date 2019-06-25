@@ -14,7 +14,7 @@ describe('UserComponent', () => {
       { provide: HttpClient, useValue: spyService }
     ]
   }));
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ UserComponent ],

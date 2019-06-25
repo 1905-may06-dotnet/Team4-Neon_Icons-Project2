@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  
+
   isLoginNotRegister: boolean;
 
   constructor(private userService: UserService) { }
@@ -26,14 +26,14 @@ export class UserComponent implements OnInit {
   }
 
   Login(username: string, password: string) {
-    let user = new User();
+    const user = new User();
     user.username = username;
     user.password = password;
     this.userService.Login(user);
   }
 
   Register(username: string, password: string, zip: string) {
-    let user = new User();
+    const user = new User();
     user.username = username;
     user.password = password;
     user.zip = zip;
