@@ -51,12 +51,15 @@ export class UserService {
   Register(user: User) {
     const url = this.userUrl + '/registeruser';
 
-    return this.http.post<User>(url, user, httpOptions)
+    return this.http.post<User>(url, user, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      observe: 'response'
+    })
       .pipe(
         tap(_ => this.log('Register User')),
         catchError(this.handleError<User>('Register'))
       )
-      .subscribe(x => this.user = user);
+      .subscribe(x => {if (x && x["status"] == 200) this.user = user;});
   }
 
   UpdateLocation(zip: string) {
