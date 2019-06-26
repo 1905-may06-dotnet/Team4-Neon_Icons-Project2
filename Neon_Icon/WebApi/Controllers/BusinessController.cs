@@ -84,9 +84,9 @@ namespace WebApi.Controllers
         public IActionResult UpdateLocation(Models.User client)
         {
             User user = db.Find(client.username);
-            user.location = client.location;
             if (user != null)
             {
+                user.location = client.location;
                 db.UpdateLocation(user);
                 return Ok();
             }
