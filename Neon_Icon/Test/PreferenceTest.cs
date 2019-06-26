@@ -11,13 +11,14 @@ namespace Test
     class PreferenceTest
     {
         private readonly IPreferenceRepository pdb;
-        PreferenceTest(IPreferenceRepository pdb)
+        PreferenceTest()
         {
-            this.pdb = pdb;
+            pdb = new Data.Repositories.PreferenceRepository();
         }
 
         public void CreatePreference_validPreference_NotNull()
         {
+
         }
         public void DeletePreference_validPreference_Null()
         {

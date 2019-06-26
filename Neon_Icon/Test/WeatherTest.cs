@@ -16,7 +16,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void Create_validWeather_NotNull()
+        public void Create_validWeather_True()
         {
             Domain.DomainEntities.Weather testWeather = new Domain.DomainEntities.Weather();
             testWeather.type = "testType";
@@ -25,9 +25,39 @@ namespace Test
             wdb.CreateWeather(testWeather);
             Assert.IsTrue(wdb.GetWeather(testWeather).description == "testDescription");
         }
-
         [TestMethod]
-        public void Delete_validWeather_Null()
+        public void GetWeather_Nothing_True()
+        {
+            var weathers = wdb.GetWeather();
+            foreach (var w in weathers)
+            {
+                if (w.description == "testDescription")
+                {
+                    Assert.IsTrue(true);
+                }
+            }
+        }
+        [TestMethod]
+        public void getWeather_weatherId_True()
+        {
+            Domain.DomainEntities.Weather testWeather = new Domain.DomainEntities.Weather();
+            testWeather.type = "testType";
+            testWeather.description = "testDescription";
+            testWeather.default_genre = "testGenre";
+            Domain.DomainEntities.Weather realTest = wdb.GetWeather(testWeather);
+            Assert.IsTrue(wdb.GetWeather(realTest.weather_id).description == "testDescription");
+        }
+        [TestMethod]
+        public void GetWeather_weatherobject_True()
+        {
+            Domain.DomainEntities.Weather testWeather = new Domain.DomainEntities.Weather();
+            testWeather.type = "testType";
+            testWeather.description = "testDescription";
+            testWeather.default_genre = "testGenre";
+            Assert.IsTrue(wdb.GetWeather(testWeather).description == "testDescription");
+        }
+        [TestMethod]
+        public void Delete_validWeather_True()
         {
             Domain.DomainEntities.Weather testWeather = new Domain.DomainEntities.Weather();
             testWeather.type = "testType";
