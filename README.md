@@ -6,8 +6,7 @@
 1. James Spiva (Lead)
 2. Nathan Woodruff
 3. Guillermo E Tuyub Canul
-4. Emmanuel Ruscalleda 
-5. Michael Bruno
+4. Michael Bruno
 
 
 ## Objective:
@@ -28,13 +27,19 @@ A variety of full-stack technologies will come together to produce this applicat
 1. C#
 2. SQL
 3. TypeScript
+4. HTML/CSS/JavaScript
 
 ### Tools:
 1. Microsoft Azure
-2. Git
+2. Git/GitHub
 3. Entity Framework
 4. Angular
-5. Command Line
+
+### Testing:
+1. Postman
+2. SonarCloud
+3. Jasmine/Karma
+4. Protractor
 
 ### Data:
 1. OpenWeather API
