@@ -92,7 +92,7 @@ export class SpotifyService {
         break;
       }
       case("Pop"):{
-        append = "album/6QdCohkHKNTVoaSx1ZzitH";
+        append = "playlist/37i9dQZF1DX1BzILRveYHb";
         break;
       }
       case("Indie"):{
