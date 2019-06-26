@@ -11,7 +11,7 @@ namespace Data.Repositories
     {
         public virtual void DeletePreference(Preference preference)
         {
-            DatabaseInstance.GetContext().Remove(Mapper.Map(preference));
+            DatabaseInstance.GetContext().Remove(DatabaseInstance.GetContext().Preferences.Find(preference.preference_id));
             DatabaseInstance.GetContext().SaveChanges();
         }
         public virtual IEnumerable<Preference> GetPreferences(int userid)
