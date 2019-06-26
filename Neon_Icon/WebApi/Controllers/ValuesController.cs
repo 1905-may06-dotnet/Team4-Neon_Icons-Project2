@@ -82,8 +82,8 @@ namespace WebApi.Controllers
         /// <returns></returns>
         public ActionResult UpdatePreference (Models.UserPreference userPreference)
         {
-            var user = udb.Find(userPreference.client.username);
-            var weather = wdb.GetWeather(ModelMapper.Map(userPreference.preference));
+            var user = udb.Find(userPreference.username);
+            var weather = wdb.GetWeather(ModelMapper.Map(userPreference.asWeather()));
             Domain.DomainEntities.Preference newPreference = new Domain.DomainEntities.Preference()
             {
                 user_id = user.id,
@@ -106,8 +106,8 @@ namespace WebApi.Controllers
         /// <returns></returns>
         public ActionResult RemovePreference (Models.UserPreference userPreference)
         {
-            var user = udb.Find(userPreference.client.username);
-            var weather = wdb.GetWeather(ModelMapper.Map(userPreference.preference));
+            var user = udb.Find(userPreference.username);
+            var weather = wdb.GetWeather(ModelMapper.Map(userPreference.asWeather()));
             Domain.DomainEntities.Preference newPreference = new Domain.DomainEntities.Preference()
             {
                 user_id = user.id,
