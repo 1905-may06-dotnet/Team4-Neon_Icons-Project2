@@ -10,9 +10,9 @@ namespace Test
     public class WeatherTest
     {
         private readonly IWeatherRepository wdb;
-        public WeatherTest(IWeatherRepository wdb)
+        public WeatherTest()
         {
-            this.wdb = wdb;
+            wdb = new Data.Repositories.WeatherRepository();
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace Test
             testWeather.description = "testDescription";
             testWeather.default_genre = "testGenre";
             wdb.CreateWeather(testWeather);
-            Assert.IsNotNull(wdb.GetWeather(testWeather));
+            Assert.IsTrue(wdb.GetWeather(testWeather).description == "testDescription");
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace Test
             testWeather.description = "testDescription";
             testWeather.default_genre = "testGenre";
             wdb.DeleteWeather(wdb.GetWeather(testWeather));
-            Assert.IsNull(wdb.GetWeather(testWeather));
+            Assert.IsTrue(wdb.GetWeather(testWeather) == null);
         }
 
     }

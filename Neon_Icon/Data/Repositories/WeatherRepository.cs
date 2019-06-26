@@ -29,7 +29,7 @@ namespace Data.Repositories
         }
         public virtual void DeleteWeather(Domain.DomainEntities.Weather weather)
         {
-            DatabaseInstance.GetContext().Remove(Mapper.Map(weather));
+            DatabaseInstance.GetContext().Remove(DatabaseInstance.GetContext().Weather.Find(weather.weather_id));
             DatabaseInstance.GetContext().SaveChanges();
         }
     }
