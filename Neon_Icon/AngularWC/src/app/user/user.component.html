@@ -1,13 +1,16 @@
 <br>
 <button class="button" mat-raised-button color="accent" (click)="SwitchToLogin()">Login</button>
-<br>
-<br>
+<br><br>
 <button class="button" mat-raised-button color="accent" (click)="SwitchToRegister()">Register</button>
+<br><br>
 
-<br>
-<br>
+<div *ngIf=(userService.IsLoggedIn())>
+    <p>Welcome, {{userService.user.username}}!</p>
+</div>
+
+<br><br>
+
 <div *ngIf=(isLoginNotRegister)>
-
     <mat-form-field class="form">
         <input matInput placeholder="Enter username" type="text" required #usernameInput><br>
     </mat-form-field><br>
@@ -16,17 +19,13 @@
         <input matInput placeholder="Enter password" type="password" required #passwordInput><br>
     </mat-form-field><br>
 
-
-
-    <br>
-    <br>
-    <br>
+    <br><br><br>
 
     <button class="button" mat-raised-button color="accent"
         (click)="Login(usernameInput.value, passwordInput.value, null)">Submit</button>
 </div>
-<div *ngIf=(!isLoginNotRegister)>
 
+<div *ngIf=(!isLoginNotRegister)>
     <mat-form-field class="form">
         <input matInput placeholder="Enter username" type="text" required #usernameInput><br>
     </mat-form-field><br>
@@ -39,11 +38,7 @@
         <input matInput placeholder="Enter zip" type="text" required #zipInput><br>
     </mat-form-field>
 
-
-
-    <br>
-    <br>
-    <br>
+    <br><br><br>
 
     <button class="button" mat-raised-button color="accent"
         (click)="Register(usernameInput.value, passwordInput.value, zipInput.value)">Submit</button>
