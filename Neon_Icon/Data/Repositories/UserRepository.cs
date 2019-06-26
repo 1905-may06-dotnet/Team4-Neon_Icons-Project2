@@ -30,7 +30,7 @@ namespace Data.Repositories
         }
         public virtual void Delete (User user)
         {
-            DatabaseInstance.GetContext().Remove(Mapper.Map(user));
+            DatabaseInstance.GetContext().Remove(DatabaseInstance.GetContext().Users.Find(user.id));
             DatabaseInstance.GetContext().SaveChanges();
         }
     }
