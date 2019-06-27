@@ -34,10 +34,35 @@ namespace WebApi.Controllers
         /// <returns></returns>
         public ActionResult<Domain.DomainEntities.Weather> GetWeather(string zip)
         {
+            Dictionary<string, string> weatherDictionary = new Dictionary<string, string>
+            {
+                { "Thunderstorm", "African Percussion" },
+                { "Drizzle", "Classical" },
+                { "Rain", "R&B" },
+                { "Snow", "Christmas" },
+                { "Mist", "Jazz" },
+                { "Smoke", "Cyberpunk" },
+                { "Haze", "EDM" },
+                { "Dust", "Western" },
+                { "Fog", "Punk" },
+                { "Sand", "Arab Pop" },
+                { "Ash", "Rap" },
+                { "Squall", "Rock" },
+                { "Tornado", "Metal" },
+                { "Clear", "Pop" },
+                { "Clouds", "Indie" }
+            };
+
             ExternalApis.WeatherApi weatherApi = new ExternalApis.WeatherApi();
             Domain.DomainEntities.Weather weather = weatherApi.GetWeatherByLocation(zip);
+            ///* uses hard coded dictionary to get default genre
+            Domain.DomainEntities.Weather rweather = weather;
+            rweather.default_genre = weatherDictionary[rweather.type];
+            //*/
+            /* uses the database to get genre
             Domain.DomainEntities.Weather rweather = wdb.GetWeather(weather);
             rweather.description = weather.description;
+            //*/
             return Ok(rweather);
         }
         [HttpGet]
