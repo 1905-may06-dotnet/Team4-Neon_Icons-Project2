@@ -9,7 +9,7 @@
 4. Michael Bruno
 
 
-## Objective:
+## Summary:
 Neon Icons is a full-stack web application for displaying the current weather forecast, along with accompanying music. The user will enter a zip code, and the application will return a forecast at the provided location. Logic in the back-end will also return an appropriate weather icon, and music genre to be handled by the music player.
 
 The user may authenticate with Spotify and, after retrieving the forecast, will be able to initialize the playlist and listen to music.
