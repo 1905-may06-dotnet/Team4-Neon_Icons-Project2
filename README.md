@@ -10,11 +10,11 @@
 
 
 ## Objective:
-Neon Icons is a full-stack web application for displaying the current weather forecast with accompanying music. The user will register on our site, and the application will query a weather API with the provided location. Logic in the back-end will reference an enumeration to map the current forecast to an appropriate genre, which will then query a music API and play a song. 
+Neon Icons is a full-stack web application for displaying the current weather forecast, along with accompanying music. The user will enter a zip code, and the application will return a forecast at the provided location. Logic in the back-end will also return an appropriate weather icon, and music genre to be handled by the music player.
 
-Additionally, the user will be able to set custom preferences for weather and genre matches in order to personalize the experience.
+The user may authenticate with Spotify and, after retrieving the forecast, will be able to initialize the playlist and listen to music.
 
-We will observe Agile methodologies in our development approach. This project will be developed in accordance with SOLID design principles, and produce a layered architecture. 
+Additionally, users can create accounts and set custom preferences for weather and genre matches in order to personalize the experience. A required credential in the registration process is the user's zip code, and this zip code can be set to the default forecast location upon login.
 
 ## Technologies
 A variety of full-stack technologies will come together to produce this application.
