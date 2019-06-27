@@ -103,6 +103,7 @@
               "**/preferences.ts",
               "**/user.ts",
               "**/weather.ts",
+              "**/user.service.ts",
               "**/spotify.service.ts",
               "**/preferences.service.ts"
             ]

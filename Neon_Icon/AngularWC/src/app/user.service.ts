@@ -41,7 +41,7 @@ export class UserService {
         tap(_ => this.log('Login User')),
         catchError(this.handleError<User>('Login'))
       )
-      .subscribe(x => {if (x && x["status"] == 200) this.user = user;});
+      .subscribe(x => {if (x && x['status'] === 200) { this.user = user; }});
   }
 
   Logout() {
@@ -59,7 +59,7 @@ export class UserService {
         tap(_ => this.log('Register User')),
         catchError(this.handleError<User>('Register'))
       )
-      .subscribe(x => {if (x && x["status"] == 200) this.user = user;});
+      .subscribe(x => {if (x && x['status'] === 200) { this.user = user; }});
   }
 
   UpdateLocation(zip: string) {
